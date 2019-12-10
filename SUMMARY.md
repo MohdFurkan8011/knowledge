@@ -38,7 +38,7 @@
       * [ArrayDeque](content/java/collection/Deque/ArrayDeque.md)
       * [LinkedBlockingDeque](content/java/collection/Deque/LinkedBlockingDeque.md)
   * [Design Pattern](content/java/design_pattern/README.md)
-    * [Creational](content/java/design_pattern/creational/Creational.md)
+    * [Creational](content/java/design_pattern/creational/README.md)
       * [Singleton](content/java/design_pattern/creational/Singleton.md)
       * [Prototype](content/java/design_pattern/creational/Prototype.md)
       * [Factory](content/java/design_pattern/creational/Factory.md)

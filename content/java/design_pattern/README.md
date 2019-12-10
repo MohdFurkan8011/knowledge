@@ -4,7 +4,7 @@ Design patterns represent the best practices used by experienced object-oriented
 
 Design patterns can speed up the development process by providing tested, proven development paradigms. Effective software design requires considering issues that may not become visible until later in the implementation.
 
-- [Creational](Creational.md)
+- [Creational](creational/README.md)
   - [Singleton](creational/Singleton.md)
   - [Prototype](creational/Prototype.md)
   - [Factory](creational/Factory.md)
