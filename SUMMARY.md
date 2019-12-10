@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Java](content/java/README.md)
-  * [Marker Interface](content/java/marker_interface/MarkerInterface.md)
+  * [Marker Interface](content/java/marker_interface/README.md)
     * [Cloneable](content/java/marker_interface/Cloneable.md)
   * [Collection](content/java/collection/README.md)
     * [List](content/java/collection/List/List.md)
@@ -37,7 +37,7 @@
       * [LinkedList](content/java/collection/List/LinkedList.md)
       * [ArrayDeque](content/java/collection/Deque/ArrayDeque.md)
       * [LinkedBlockingDeque](content/java/collection/Deque/LinkedBlockingDeque.md)
-  * [Design Pattern](content/java/design_pattern/Design_Pattern.md)
+  * [Design Pattern](content/java/design_pattern/README.md)
     * [Creational](content/java/design_pattern/creational/Creational.md)
       * [Singleton](content/java/design_pattern/creational/Singleton.md)
       * [Prototype](content/java/design_pattern/creational/Prototype.md)
