@@ -1,0 +1,9 @@
+# Ternary Search
+
+Like the binary search, it also separates the lists into sub-lists. This procedure divides the list into three parts using two intermediate mid values. As the lists are divided into more subdivisions, so it reduces the time to search a key value.
+
+#### The complexity of Ternary Search Technique
+
+1. Time Complexity: O(log3 n)
+2. Space Complexity: O(1)
+
