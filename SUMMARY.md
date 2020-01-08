@@ -53,4 +53,9 @@
     * [Jump Search](content/data_structure/searching/JumpSearch.md)
     * [Interpolation Search](content/data_structure/searching/InterpolationSearch.md)
     * [Expontial Search](content/data_structure/searching/ExpontialSearch.md)
+  * [Sorting](content/data_structure/sorting/README.md)
+    * [Bubble Sort](content/data_structure/sorting/BubbleSort.md)
+    * [Selection Sort](content/data_structure/sorting/SelectionSort.md)
+    * [Insertion Sort](content/data_structure/sorting/InsertionSort.md)
+    * [Merge Sort](content/data_structure/sorting/MergeSort.md)
 
