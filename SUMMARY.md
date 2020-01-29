@@ -66,6 +66,7 @@
   * [Feign Client](content/microservices/feign-client.md)
   * [Ribbon Load Balance](content/microservices/ribbon.md)
   * [Zuul API Gateway](content/microservices/zuul.md)
+  * [Hystrix](content/microservices/hystrix.md)
   
   
 

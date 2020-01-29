@@ -6,4 +6,5 @@
 4. [Feign Client](feign-client.md)
 5. [Ribbon Load Balance](ribbon.md)
 6. [Zuul API Gateway](zuul.md)
+7. [Hystrix](hystrix.md)
 
