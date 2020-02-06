@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+
 * [Java](content/java/README.md)
   * [Marker Interface](content/java/marker_interface/README.md)
     * [Cloneable](content/java/marker_interface/Cloneable.md)
@@ -45,7 +46,12 @@
       * [Abstract Factory](content/java/design_pattern/creational/Abstract_Factory.md)
       * [Builder](content/java/design_pattern/creational/Builder.md)
       * [Object Pool](content/java/design_pattern/creational/Object_Pool.md)
-* [Data Structure](content/algorithm/README.md)
+  
+* [Data Structure](content/data_structure/README.md)
+
+  * [Array](content/data_structure/array.md)
+
+* [Algorithm](content/algorithm/README.md)
   
   * [Searching](content/algorithm/searching/README.md)
     * [Linear Search](content/algorithm/searching/LinearSearch.md)
@@ -59,6 +65,7 @@
     * [Selection Sort](content/algorithm/sorting/SelectionSort.md)
     * [Insertion Sort](content/algorithm/sorting/InsertionSort.md)
     * [Merge Sort](content/algorithm/sorting/MergeSort.md)
+  
 * [Microservices](content/microservices/README.md)
   
   * Build Services
