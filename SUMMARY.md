@@ -6,6 +6,7 @@
   * [Marker Interface](content/java/marker_interface/README.md)
     * [Cloneable](content/java/marker_interface/Cloneable.md)
   * [Singleton Class](content/java/singleton/singleton.md)
+  * [Immutable Class](content/java/immutable/immutable.md)
   * [Collection](content/java/collection/README.md)
     * [List](content/java/collection/List/List.md)
       * [ArrayList](content/java/collection/List/ArrayList.md)
