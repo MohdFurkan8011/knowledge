@@ -9,6 +9,10 @@ The singleton pattern is one of the simplest design patterns. Sometimes we need 
 3. [Method 3](#method-3)
 4. [Method 4](#method-4)
 
+[When Singleton design pattern breaks](#when-singleton-design-pattern-breaks)
+
+
+
 ###### Method 1
 
 ```java
@@ -104,3 +108,87 @@ class Singleton {
     } 
 }
 ```
+
+
+
+
+
+#### When Singleton design pattern breaks
+
+1. [Reflection](#reflection)
+2. [Deserialization](#deserialization)
+3. [Clone](#clone)
+
+
+
+###### Reflection
+
+Java Reflection is an API used to examine or modify the behavior of methods, classes, and interfaces at runtime. Using the Reflection API, we can create multiple objects in the `Singleton` class. Consider the following example
+
+```java
+public class ReflectionSingleton {
+    
+    public static void main(String[] args)  {
+        Singleton objOne = Singleton.getInstance();
+        Singleton objTwo = null;
+        try {
+            Constructor constructor = Singleton.class.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            objTwo = (Singleton) constructor.newInstance();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        System.out.println("Hashcode of Object 1 - "+objOne.hashCode());
+        System.out.println("Hashcode of Object 2 - "+objTwo.hashCode());
+    }
+    
+}
+```
+
+###### Ans. 
+
+Throws exception from constructor if instance already created.
+
+
+
+###### Deserialization
+
+```java
+public class DeserializationSingleton {
+    
+    public static void main(String[] args) throws Exception {
+        Singleton instanceOne = Singleton.getInstance();
+        ObjectOutput out = new ObjectOutputStream(new FileOutputStream("file.text"));
+        out.writeObject(instanceOne);
+        out.close();
+        ObjectInput in = new ObjectInputStream(new FileInputStream("file.text"));
+        Singleton instanceTwo = (Singleton) in.readObject();
+        in.close();
+        System.out.println("hashCode of instance 1 is - " + instanceOne.hashCode());
+        System.out.println("hashCode of instance 2 is - " + instanceTwo.hashCode());
+    }
+    
+}
+```
+
+###### Ans.
+
+```java
+protected Object readResolve() { 
+	return instance; 
+}
+```
+
+
+
+###### Clone
+
+###### Ans.
+
+```java
+@Override
+protected Object clone() throws CloneNotSupportedException  {
+	throw new CloneNotSupportedException();
+}
+```
+

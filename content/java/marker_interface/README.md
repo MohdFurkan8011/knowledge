@@ -8,5 +8,6 @@ public interface Serializable {
 }
 ```
 
-1. [Cloneable](Cloneable.md)
+1. [Cloneable](../clone/clone.md)
+2. [Serializable](../serialize/serialize.md)
 
