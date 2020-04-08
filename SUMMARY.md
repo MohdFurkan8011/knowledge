@@ -55,6 +55,7 @@
 
   * [Array](content/data_structure/array.md)
   * [Linked List](content/data_structure/linked_list.md)
+  * [Stack](content/data_structure/stack.md)
 
 * [Algorithm](content/algorithm/README.md)
   
