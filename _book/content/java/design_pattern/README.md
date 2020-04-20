@@ -18,7 +18,7 @@ Design patterns can speed up the development process by providing tested, proven
   - [Decorator](#decorator)
   - [Facade](#facade)
   - [Flyweight](#flyweight)
-  - [Proxy](#proxy)
+  - [Proxy]()
 - [Behavioral]()
   - [Chain of responsibility]()
   - [Command]()
@@ -34,49 +34,37 @@ Design patterns can speed up the development process by providing tested, proven
 
 #### Structural
 
-#### Adapter
+##### Adapter
 
 An adapter convert the interface of a class into another interface clients expect. It lets classes work 		  together that couldn’t otherwise because of incompatible interfaces.
 
 
 
-#### Bridge
+##### Bridge
 
 Bridge design pattern is used to decouple a class into two parts – *abstraction* and it’s *implementation* – so that both can evolve in future without affecting each other. It increases the loose coupling between class abstraction and it’s implementation.
 
 
 
-#### Composite
+##### Composite
 
 Composite design pattern helps to compose the objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 
 
 
-#### Decorator
+##### Decorator
 
 Decorator design pattern is used to add additional features or behaviors to a particular instance of a class, while not modifying the other instances of same class.
 
 
 
-#### Facade
+##### Facade
 
 The facade pattern is appropriate when you have a **complex system** that you want to expose to clients in a simplified way, or you want to make an external communication layer over an existing system which is incompatible with the system. Facade deals with interfaces, not implementation. Its purpose is to hide internal complexity behind a single interface that appears simple on the outside.
 
 
 
-#### Flyweight
+##### Flyweight
 
 Flyweight pattern is one of the [structural design patterns](https://www.geeksforgeeks.org/design-patterns-set-1-introduction/) as this pattern provides ways to decrease object count thus improving application required objects structure. Flyweight pattern is used when we need to create a large number of similar objects (say 105). One important feature of flyweight objects is that they are **immutable**. This means that they cannot be modified once they have been constructed.
 
-
-
-#### Proxy
-
-In proxy design pattern, a proxy object provide a surrogate or placeholder for another object to control access to it. Proxy is heavily used to implement lazy loading related usecases where we do not want to create full object until it is actually needed.
-
-Proxies are generally divided into four types –
-
-1. **Remote proxy** – represent a remotely loctated object. To talk with remote objects, the client need to do additional work on communication over network. A proxy object does this communication on behalf of original object and client focuses on real talk to do.
-2. **Virtual proxy** – delay the creation and initialization of expensive objects until needed, where the objects are created on demand. Hibernate created proxy entities are example of virtual proxies.
-3. **Protection proxy** – help to implement security over original object. They may check for access rights before method invocations and allow or deny access based on the conclusion.
-4. **Smart Proxy** – performs additional housekeeping work when an object is accessed by a client. An example can be to check if the real object is locked before it is accessed to ensure that no other object can change it.
