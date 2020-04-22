@@ -20,19 +20,14 @@ Design patterns can speed up the development process by providing tested, proven
   - [Flyweight](#flyweight)
   - [Proxy](#proxy)
 - [Behavioral]()
-  - [Chain of responsibility]()
-  - [Command]()
-  - [Interpreter]()
-  - [Iterator]()
-  - [Mediator]()
-  - [State]()
-  - [Strategy]()
-  - [Template Method]()
-  - [Visitor]()
+  - [Chain of responsibility](#chain of responsibility)
+  - [Command](#command)
+  - [Iterator](#iterator)
+  - [State](#state)
 
 
 
-#### Structural
+### Structural
 
 #### Adapter
 
@@ -80,3 +75,29 @@ Proxies are generally divided into four types –
 2. **Virtual proxy** – delay the creation and initialization of expensive objects until needed, where the objects are created on demand. Hibernate created proxy entities are example of virtual proxies.
 3. **Protection proxy** – help to implement security over original object. They may check for access rights before method invocations and allow or deny access based on the conclusion.
 4. **Smart Proxy** – performs additional housekeeping work when an object is accessed by a client. An example can be to check if the real object is locked before it is accessed to ensure that no other object can change it.
+
+
+
+### Behavioral
+
+#### Chain of responsibility
+
+Chain of responsibility design pattern gives more than one object an opportunity to handle a request by linking receiving objects together in form of a chain.
+
+
+
+#### Command
+
+A Command Pattern says that "*encapsulate a request under an object as a command and pass it to invoker object. Invoker object looks for the appropriate object which can handle this command and pass the command to the corresponding object and that object executes the command*".
+
+
+
+#### Iterator
+
+Iterator pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+
+
+
+#### State
+
+In state pattern allows an object to alter its behavior when its internal state changes. The object will appear to change its class. There shall be a separate concrete class per possible state of an object.
