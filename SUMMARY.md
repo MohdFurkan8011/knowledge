@@ -5,6 +5,7 @@
 * [Java](content/java/README.md)
   
   * [Object](content/java/object/object.md)
+  * [Exception Handling](content/java/exception/exception.md)
   * [Marker Interface](content/java/marker_interface/README.md)
     * [Cloneable](content/java/clone/clone.md)
   * [Singleton Class](content/java/singleton/singleton.md)
