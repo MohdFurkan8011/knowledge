@@ -75,17 +75,22 @@ There are many rules if we talk about methodoverriding with exception handling. 
 
    
 
-2. Try with resource(java 1.5 features to close resources automatically)
+2. Try with resource(java 1.5 features to close resources automatically). It happen just because of Autoclosable interface, our resource should implement this interface.
 
-3. Multiple catch rule, (In last catch, parent exception should be) 
+   **From java 1.7  it is possible to have only try block,  possible by try with resource.**
 
-4. Nested try (try into another try)
+3. **ClassNotFoundException** when you load a class with does not exists in classpath,
+   **NoClassDefFoundError** class is available at compile time, but not available at run time.
 
-5. Rethrow an exception
+4. Multiple catch rule, (In last catch, parent exception should be) 
 
-6. **Custom exception**
+5. Nested try (try into another try)
 
-7. Union catch blocks
+6. Rethrow an exception
+
+7. **Custom exception**
+
+8. Union catch blocks
 
    ```java
     try (Scanner contents = new Scanner(new File(playerFile))) {
