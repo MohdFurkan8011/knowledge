@@ -2,7 +2,7 @@
 
 
 
-- [Interview QA](#interview qa) 
+- [Interview QA](#interview-qa) 
 
   
 
