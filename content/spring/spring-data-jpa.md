@@ -228,3 +228,37 @@ public List<Student> findByNameIgnoreCase(String name);
 | True               | findByActiveTrue()              | ...where x.active = true                                     |
 | False              | findByActiveFalse()             | ...where x.active = false                                    |
 | IgnoreCase         | findByFirstnameIgnoreCase       | ...where UPPER(x.firstame) = UPPER(?1)                       |
+
+
+
+**Q17. What does the @Id annotation do?**
+
+**Ans:** The **@Id** annotation marks a field as the primary key for that particular table. This is a unique identifier for each entry in the table. This annotation is typically used with **@GeneratedValue** to automatically generate an unique id for each entry in the table.
+
+**Q18. What does the @Entity annotation do?**
+
+**Ans:** The **@Entity** annotation indicates a class represents a relational table in the database.
+
+**Q19. What is the difference between FetchType.Eager and FetchType.Lazy?**
+
+**Ans:** FetchType attribute indicates how whether records will be eagerly or lazily loaded from the database.
+
+**Q20. Is the CrudRepository interface part of JPA?**
+
+**Ans:** No. CrudRepository is an interface exposed by Spring Data framework for more easily interacting with JPA implementations like Hibernate
+
+**Q21. Is Spring Data JPA an implementation of the JPA specification?**
+
+**Ans:** No. Spring Data simply makes it easier to interface with a JPA specification like Hibernate
+
+**Q22. Is the @Column annotation required for mapping fields to columns?**
+
+**Ans:** No. The @Column field allows you to optionally override the name of the column that the entity class field maps to in the database table. It is not required.
+
+**Q23. In a @OneToMany relationship, what does the "mappedBy" attribute indicate?**
+
+**Ans:** mappedBy is an attribute that specifies the owning side of a one to many relationship. For example, if you want to establish a one to many relationship between authors and books you would specify **mappedBy="authors"** on the Books entity.
+
+**Q24. What does the @EnableJpaRepositories annotation do?**
+
+**Ans:** This annotation enables the automatic generation of JPA repositories. Any class which implements CrudRepository interface will generate a repository when this annotation is present.
