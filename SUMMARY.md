@@ -78,5 +78,6 @@
     * [Hystrix](content/microservices/hystrix.md)
 * [Hibernate](content/hibernate/README.md)
 * [Spring](content/spring/README.md)
+    * [Spring Data JPA](content/spring/spring-data-jpa.md)
 * [MySQL](content/mysql/README.md)
 
