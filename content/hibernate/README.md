@@ -1,6 +1,6 @@
 # Hibernate
 
-- [Hibernate QA](#hibernate qa)
+- [Hibernate QA](#hibernate-qa)
 
 #### Hibernate QA
 
