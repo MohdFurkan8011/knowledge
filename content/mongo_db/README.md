@@ -11,7 +11,7 @@
 
 
 
-#### NoSQL Databases
+### NoSQL Databases
 
 We know that MongoDB is a NoSQL Database, so it is very necessary to know about NoSQL Database to understand MongoDB.
 
@@ -29,7 +29,7 @@ Databases can be divided in 3 types:
 
 
 
-#### MongoDB Introduction
+### MongoDB Introduction
 
 **MongoDB** is a No SQL database. It is an open-source, cross-platform, document-oriented database written in C++.
 
@@ -77,7 +77,7 @@ These are some important features of MongoDB:
 
     
 
-#### Data Types
+### Data Types
 
 | Data Types   | Description                                                  |
 | :----------- | :----------------------------------------------------------- |
@@ -94,7 +94,7 @@ These are some important features of MongoDB:
 
 
 
-##### Database Queries
+### Database Queries
 
 - **Create** 
 
@@ -138,7 +138,7 @@ These are some important features of MongoDB:
 
   
 
-#### Collection
+### Collection
 
 In MongoDB, db.createCollection(name, options) is used to create collection. But usually you don? it need to create collection. MongoDB creates collection automatically when you insert some documents.
 
@@ -191,7 +191,7 @@ In MongoDB, db.collection_name.drop() method is used to drop a collection from a
 
 
 
-##### Curd
+### Curd
 
 - **Insert**
 
@@ -313,4 +313,4 @@ SQL and MongoDB Delete Statements
 
 
 
-#### Interview QA
+### Interview QA
