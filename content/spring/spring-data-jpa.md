@@ -2,6 +2,10 @@
 
 
 
+- [Spring Data JPA Documentation](https://docs.spring.io/spring-data/jpa/docs/1.7.1.RELEASE/reference/html)
+
+- [Spring Data JPA Tutorial](https://www.petrikainulainen.net/spring-data-jpa-tutorial/)
+
 - [Interview QA](#interview-qa) 
 
   
