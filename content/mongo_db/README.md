@@ -7,6 +7,7 @@
 - [Database Queries](#database-queries)
 - [Collection](#Collection)
 - [CRUD](#curd)
+- [Spring with MongoDB](#spring-with-mongodb)
 - [Interview QA](#interview-qa)
 
 
@@ -316,6 +317,239 @@ SQL and MongoDB Delete Statements
 | DELETE FROM table_name                    | db.collection_name.deleteMany( { } )             |
 
 
+
+### Spring with MongoDB
+
+- [MongoTemplate](#mongotemplate)
+- [Mongo Repository](#mongo-repository)
+
+
+
+##### MongoTemplate
+
+The `MongoTemplate` class is the primary implementation of `MongoOperations` interface which specifies the basic set of MongoDB operations. We can also use `MongoRepository` interface to perform MongoDB operations. The implementation class of `MongoRepository` uses `MongoTemplate` bean at run time. To create `MongoTemplate` bean we need to create `MongoClient` using MongoDB server host, port and database name with given credentials. `MongoTemplate` has methods such as `insert`, `update`, `remove`, `find`, `upsert` etc.
+
+```java
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-mongodb</artifactId>
+	</dependency>
+```
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
+
+@Configuration
+@EnableMongoRepositories(basePackages = "com.concretepage.repository")
+public class MongoDBConfig {
+	public String getDatabaseName() {
+		return "myMongoDB";
+	}
+	@Bean
+	public MongoClient mongoClient() {
+		ServerAddress address = new ServerAddress("127.0.0.1", 27017);
+		MongoCredential credential = MongoCredential.createCredential("mdbUser", getDatabaseName(), "cp".toCharArray());
+		MongoClientOptions options = new MongoClientOptions.Builder().build();
+        
+		MongoClient client = new MongoClient(address, credential, options);
+		return client;
+	}
+	@Bean
+	public MongoDbFactory mongoDbFactory() {
+		MongoDbFactory factory = new SimpleMongoDbFactory(mongoClient(), getDatabaseName());
+		return factory;
+	}
+	@Bean
+	public MongoTemplate mongoTemplate() {
+		MongoTemplate template = new MongoTemplate(mongoDbFactory());
+		return template;
+	}
+} 
+```
+
+We can also use `AbstractMongoConfiguration` to configure MongoDB. `AbstractMongoConfiguration` is a base class for Spring Data MongoDB configuration using JavaConfig with `MongoClient` and `MongoTemplate`. We need not to create separate bean for `MongoTemplate` in this case.
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
+
+@Configuration
+@EnableMongoRepositories(basePackages = "com.concretepage.repository")
+public class MongoDBConfig extends AbstractMongoConfiguration {
+	@Override
+	public String getDatabaseName() {
+		return "myMongoDB";
+	}
+	@Override
+	@Bean
+	public MongoClient mongoClient() {
+		ServerAddress address = new ServerAddress("127.0.0.1", 27017);
+		MongoCredential credential = MongoCredential.createCredential("mdbUser", getDatabaseName(), "cp".toCharArray());
+		MongoClientOptions options = new MongoClientOptions.Builder().build();
+        
+		MongoClient client = new MongoClient(address, credential, options);
+		return client;
+	}
+} 
+```
+
+
+
+- **Insert**
+
+  ```java
+  Student ram = new Student(1,"Ram",20);
+  mongoTemplate.insert(ram); 
+  ```
+
+  ```java
+  Student ram = new Student(1,"Ram",20);
+  Student shyam = new Student(2,"Shyam",19);
+  Student mohan = new Student(3,"Mohan",20);	
+  
+  mongoTemplate.insert(Arrays.asList(ram, shyam, mohan), Student.class); 
+  ```
+
+  
+
+-  **Save**
+
+  ```java
+  Student ram = new Student(101,"Ram",20);
+  mongoTemplate.save(ram);
+  
+  Person newPerson = new Person(102, "Shyam");
+  mongoTemplate.save(newPerson, "student"); 
+  ```
+
+  
+
+- **collectionExists**
+
+  ```
+  boolean stdExists = mongoTemplate.collectionExists(Student.class);
+  System.out.println(stdExists); //true 
+  ```
+
+- **updateFirst**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  Update update = new Update();
+  update.set("name", "Mohan");
+  update.set("age", 25);
+  mongoTemplate.updateFirst(query, update, Student.class); 
+  ```
+
+-  **updateMulti**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  Update update = new Update();
+  update.set("name", "Shiva");
+  update.set("age", 30);
+  mongoTemplate.updateMulti(query, update, Student.class);  
+  ```
+
+-  **upsert**
+
+  `upsert` method accepts `Query`, `Update` and entity class as arguments. `upsert` performs an upsert that means when the given criteria matches any data in collection, `upsert` will update that row. If `upsert` does not find any data by given criteria, then a new row will be inserted.
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  Update update = new Update();
+  update.set("name", "Shiva");
+  update.set("age", 30);
+  mongoTemplate.upsert(query, update, Student.class); 
+  ```
+
+- **exists**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("name").is("Ram"));
+  
+  boolean dataExists = mongoTemplate.exists(query, "student");
+  System.out.println(dataExists); //true 
+  ```
+
+- **find**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  List<Student> list = mongoTemplate.find(query, Student.class, "student");
+  list.forEach(std -> System.out.println(std.getName() + " - " + std.getAge() ));
+  ```
+
+- **findAll**
+
+  ```java
+  List<Student> list = mongoTemplate.findAll(Student.class, "student");
+  list.forEach(std -> System.out.println(std.getName() + " - " + std.getAge() )); 
+  ```
+
+- **findAllAndRemove**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  List<Student> list = mongoTemplate.findAllAndRemove(query, Student.class, "student");
+  list.forEach(std -> System.out.println(std.getName() + " - " + std.getAge() )); 
+  ```
+
+- **remove**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  mongoTemplate.remove(query, Student.class, "student"); 
+  ```
+
+- **count**
+
+  ```java
+  Query query = new Query(); 
+  query.addCriteria(Criteria.where("age").is(19));
+  long count = mongoTemplate.count(query, "student");
+  System.out.println(count); 
+  ```
+
+-  **dropCollection**
+
+  ```java
+  mongoTemplate.dropCollection(Student.class);
+  ```
+
+
+
+##### MongoRepository
+
+```java
+@Component
+public interface StudentRepository extends MongoRepository<Student, Integer> {
+    Student getStudentById(int id);
+    List<Student> getStudentByAge(int age);
+} 
+```
 
 
 
