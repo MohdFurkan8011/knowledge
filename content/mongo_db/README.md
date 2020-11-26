@@ -580,7 +580,7 @@ Types of NoSQL databases:
 
 **Q5. Which all languages can be used with MongoDB?**
 
-**Ans:** Currently, MonggoDB provides official driver support for C, C++, C#, Java, Node.js, Perl, PHP, Python, Ruby, Scala, Go and Erlang. MongoDB can easily be used with any of these languages.
+**Ans:** Currently, MongoDB provides official driver support for C, C++, C#, Java, Node.js, Perl, PHP, Python, Ruby, Scala, Go and Erlang. MongoDB can easily be used with any of these languages.
 
 **Q6. Compare SQL databases and MongoDB at a high level.**
 
