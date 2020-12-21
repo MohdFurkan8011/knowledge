@@ -8,7 +8,7 @@ In this procedure, the entire list is divided into two sub-lists. If the item is
 
 #### The complexity of Binary Search Technique
 
-1. **Time Complexity****:** O(1) for the best case. O(log2 n) for average or worst case.
+1. **Time Complexity:** O(1) for the best case. O(log2 n) for average or worst case.
 2. **Space Complexity:** O(1) 
 
 

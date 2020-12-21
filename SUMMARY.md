@@ -68,6 +68,11 @@
         * [Selection Sort](content/algorithm/sorting/SelectionSort.md)
         * [Insertion Sort](content/algorithm/sorting/InsertionSort.md)
         * [Merge Sort](content/algorithm/sorting/MergeSort.md)
+    * [Divide and Conquer](content/algorithm/divide-conquer.md)
+        * [Max - Min problem](content/algorithm/divide-conquer.md#max-min-problem)
+        * [Bineary Search](content/algorithm/divide-conquer.md#bineary-search)
+        * [Merge Sort](content/algorithm/sorting/MergeSort.md)
+        * [Tower of Hanoi](content/algorithm/divide-conquer.md#tower-of-hanoi)
 * [Microservices](content/microservices/README.md)
     * Build Services
     * [Eureka Naming Server](content/microservices/eureka-naming-server.md)
