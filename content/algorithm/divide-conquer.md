@@ -19,8 +19,8 @@ Divide and Conquer algorithm consists of a dispute using the following three ste
 The specific computer algorithms are based on the Divide & Conquer approach
 
 - [Maximum and Minimum Problem](#maximum-and-minimum-problem)
-- [Binary Search](content/algorithm/searching/BinarySearch.md)
-- [Merge and Quick Sorting](contact/algorithm/sorting/README.md)
+- [Binary Search](../algorithm/searching/BinarySearch.md)
+- [Merge and Quick Sorting](../algorithm/sorting/README.md)
 - [Tower of Hanoi]()
 
 
