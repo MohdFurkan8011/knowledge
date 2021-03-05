@@ -1,6 +1,6 @@
 # Java Documentations
 
-1. [About Java](java.md)
+1. [About Java](Java.md)
 2. [Object](object/object.md)
 3. [Exception Handling](exception/exception.md)
 4. [Marker Interface](marker_interface/README.md)
