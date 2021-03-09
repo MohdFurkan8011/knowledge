@@ -8,6 +8,17 @@
 - [Features of Java](#features-of-java)
 - [C++ vs Java](#c++-vs-java)
 - [Difference between JDK JRE and JVM](#difference-between-jdk-jre-and-jvm)
+- [Java Variables](#java-variables)
+- [Data Types](#data-types)
+- [Unicode System](#unicode-system)
+- [Operators](#operators)
+- [Java keywords](#java-keywords)
+- [Controller Statements](#controller-statements)
+- [OOPs](#object-oriented-programming-system)
+- [Constructor in Java](#constructor-in-java)
+- [Static keyword](#static-keyword)
+- [this keyword](#this-keyword)
+- [Inheritance in Java](#inheritance-in-java)
 
 #### Introduction
 
@@ -219,3 +230,198 @@ JDK is an implementation of any one of the below given Java Platforms released b
 - Micro Edition Java Platform
 
 The JDK contains a private Java Virtual Machine (JVM) and a few other resources such as an interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), etc. to complete the development of a Java Application.
+
+
+
+#### Java Variables
+
+A variable is a container which holds the value while the Java program is executed. A variable is assigned with a data type.
+
+Variable is a name of memory location. There are three types of variables in java: **local, instance and static**.
+
+1. **Local Variable**
+
+   A variable declared inside the body of the method is called local variable. You can use this variable only within that method and the other methods in the class aren't even aware that the variable exists.
+
+   **A local variable cannot be defined with "static" keyword.**
+
+2. **Instance Variable**
+
+   A variable declared inside the class but outside the body of the method, is called instance variable. It is not declared as static.
+
+   It is called instance variable because its value is instance specific and is not shared among instances.
+
+3. **Static Variable**
+
+   A variable which is declared as static is called static variable. It cannot be local. You can create a single copy of static variable and share among all the instances of the class. Memory allocation for static variable happens only once when the class is loaded in the memory.
+
+   
+
+#### Data Types
+
+Data types specify the different sizes and values that can be stored in the variable. There are two types of data types in Java:
+
+1. **Primitive data types:** The primitive data types include boolean, char, byte, short, int, long, float and double, There are 8 types of data types in java (byte, short, int, long, float, double, char, boolean).
+2. **Non-primitive data types:** The non-primitive data types include Classes, Interfaces, and Arrays.
+
+
+
+#### Unicode System
+
+Unicode is a universal international standard character encoding that is capable of representing most of the world's written languages.
+
+In unicode, character holds 2 byte, so java also uses 2 byte for characters.
+
+**lowest value** \u0000
+
+**highest value** \uFFFF
+
+
+
+#### Operators
+
+**Operator** in Java is a symbol which is used to perform operations.
+
+- Arithmetic operator (+, -, /, *)
+- Relation operator (<, <=, >, >=, ==, !=, instanceof)
+- Logical operator (&&, ||)
+- Assignment operator ( = += -= *= /= %= &= ^= |= <<= >>= >>>=)
+- Unary operator (++, --)
+- Ternary operator (? :)
+- Shift operator (<<, >>, >>>)
+- Bitwise operator (&, |)
+
+
+
+#### Java Keywords
+
+**Java keywords** are also known as **reserved words**. These are predefined words by Java so it cannot be used as a variable or object name.
+
+
+
+#### Controller Statements
+
+- If-else
+- switch
+- for-loop
+- while-loop
+- do-while-loop
+- break
+- continue
+- comments (single line comment, multi line comment, documentation comment)
+
+
+
+#### Object Oriented Programming System
+
+**Object** means a real-world entity such as a pen, chair, table, computer, watch, etc. **Object-Oriented Programming** is a methodology or paradigm to design a program using classes and objects. It simplifies software development and maintenance by providing some concepts:
+
+- **Object**
+
+  Any entity  that has state and behavior is known as an object. An object can be defined as an instance of a class.
+
+- **Class**
+
+  *Collection of objects* is called class. It is a logical entity. A class can also be defined as a blueprint from which you can create an individual object. Class doesn't consume any space.
+
+- **Inheritance**
+
+  *When one object acquires all the properties and behaviors of a parent object*, it is known as inheritance. It provides code reusability. It is used to achieve runtime polymorphism.
+
+- **Polymorphism**
+
+  If *one task is performed in different ways*, it is known as polymorphism.
+
+- **Abstraction**
+
+  *Hiding internal details and showing functionality* is known as abstraction. For example phone call, we don't know the internal processing.
+
+  In Java, we use abstract class and interface to achieve abstraction.
+
+- **Encapsulation**
+
+  *Binding (or wrapping) code and data together into a single unit are known as encapsulation*. For example, a capsule, it is wrapped with different medicines.
+
+  A java class is the example of encapsulation. Java bean is the fully encapsulated class because all the data members are private here.
+
+Apart from these concepts, there are some other terms which are used in Object-Oriented design:
+
+- **Coupling**
+
+  Coupling refers to the knowledge or information or dependency of another class. It may be strong and week, for week we use interfaces, 
+
+- **Association**
+
+  Association represents the relationship between the objects(One to one, one to many, many to one, many to many)
+
+- **Aggregation**
+
+  Aggregation is a way to achieve association. Aggregation represents the relationship where one object contains other objects as a part of its state.
+
+- **Composition**
+
+  The composition is also a way to achieve association. The composition represent relationship where one object contains other objects as a part of it state. There is a strong relationship between the containing object and dependent object. If you delete the parent object, all the child objects will be deleted automatically.
+
+
+
+#### Constructor in Java
+
+In Java, a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At the time of calling constructor, memory for the object is allocated in the memory.
+
+It is a special type of method which is used to initialize the object.
+
+Every time an object is created using the new() keyword, at least one constructor is called.
+
+**Types of constructors**
+
+1. Default constructor
+2. Parameterized constructor
+
+**Constructor overloading**
+
+Constructor overloading in Java is a technique of having more than one constructor with different parameter lists.
+
+**Difference between constructor and method**
+
+| Java Constructor                                             | Java Method                                               |
+| :----------------------------------------------------------- | :-------------------------------------------------------- |
+| A constructor is used to initialize the state of an object.  | A method is used to expose the behavior of an object.     |
+| A constructor must not have a return type.                   | A method must have a return type.                         |
+| The constructor is invoked implicitly.                       | The method is invoked explicitly.                         |
+| The Java compiler provides a default constructor if you don't have any constructor in a class. | The method is not provided by the compiler in any case.   |
+| The constructor name must be same as the class name.         | The method name may or may not be same as the class name. |
+
+
+
+#### Static keyword
+
+The static can be:
+
+- Variable
+- Method
+- Block
+- Nested class
+
+
+
+#### this keyword
+
+There can be a lot of usage of **java this keyword**. In java, this is a **reference variable** that refers to the current object.
+
+Here is given the 6 usage of java this keyword.
+
+1. this can be used to refer current class instance variable.
+2. this can be used to invoke current class method (implicitly)
+3. this() can be used to invoke current class constructor.
+4. this can be passed as an argument in the method call.
+5. this can be passed as argument in the constructor call.
+6. this can be used to return the current class instance from the method.
+
+
+
+#### Inheritance in Java
+
+**Inheritance in Java** is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).
+
+**Single, Multilevel, Hierarchical, Multiple, Hybrid**
+
