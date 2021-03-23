@@ -508,5 +508,3 @@ The **final keyword** in java is used to restrict the user. The java final keywo
 
 
 
-#### Java 8 Features
-
