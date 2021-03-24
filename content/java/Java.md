@@ -515,13 +515,13 @@ The **final keyword** in java is used to restrict the user. The java final keywo
 - [Functional Interface](#functional-interface)
 - [Method Reference](#method-reference)
 - [Stream](#stream)
-- [Default Method](#default-method)
-- [forEach Method](#forEach-method)
-- [Collectors](#collectors)
-- [String Joiner](#string-joiner)
+- Collectors
+- Spliterator
+- Default Method
+- forEach Method
+- String Joiner
 - [Optional Class](#optional-class)
-- [Parallel Array Sorting](#parallel-array-sorting)
-- [Type Inference](#type-inference)
+- Type Inference
 
 
 
@@ -537,7 +537,9 @@ Java has introduced a new Date and Time API since java 8. The java.time package 
 
 ##### Lambda Expressions
 
-The Lambda expression is used to provide the implementation of an interface which has functional interface. It saves a lot of code. Lambda expressions are similar to methods, but they do not need a name.
+Lambda Expression is an anonymous function which accepts a set of input parameters and returns results.
+
+Lambda Expression is a block of code without any name, with or without parameters and with or without results. This block of code is executed on demand. It has three part, parameter, arrow operator, expression body.
 
 () -> parameter
 
@@ -549,7 +551,7 @@ parameter -> expression
 
 > Benefit of lambda expression
 >
-> 1. Fewer line of cod
+> 1. Fewer line of code
 > 2. Sequential and Parallel execution support by passing behavior in methods.
 
 
@@ -568,7 +570,7 @@ Steam API is introduced that uses a lot of functional interface.
 
 java.util.function has build in functional interfaces.
 
-- Consumer<T> -  Represents an operation that accepts a single input argument and returns no result.
+- **Consumer<T>** -  Represents an operation that accepts a single input argument and returns no result.
 
   It has two methods,
 
@@ -582,7 +584,7 @@ java.util.function has build in functional interfaces.
 
   
 
-- Supplier<T> - takes no argument and returns output.
+- **Supplier<T>** - takes no argument and returns output.
 
   It has one methods
 
@@ -592,4 +594,69 @@ java.util.function has build in functional interfaces.
 
   
 
-- Function<T,R> - Represents a function that accepts one argument and produces a result.
+- **Function<T,R>** - Represents a function that accepts one argument and produces a result.
+
+  It has following methods
+
+  ```
+  andThen(Function f)
+  apply(T t)
+  compose(Function f)
+  identify()
+  ```
+
+  Others interfaces - BiFunction, DoubleFunction, DoubleToIntFunction, DoubleToLongFunction etc.
+
+- **Predicate<T>** - Represents a predicate (boolean valued function) of one argument.
+
+  It has following methods
+
+  ```
+  and(Predicate p)
+  or(Predicate p)
+  isEquals(Object target)
+  test(T t)
+  ```
+
+  Others interfaces - BiPredicate, DoublePredicate, IntPredicate, LongPredicate
+
+- **BinaryOperator<T>** - Represents an operation upon two operands of the same type, producing a result of the same type as the operand. It also extends BiFunction.
+
+  ```
+  maxBy(Comparator c)
+  minBy(Comparator c)
+  ```
+
+  Other interfaces - DoubleBinaryOperator, IntBinaryOperator, LongBinaryOperator
+
+
+
+##### Method Reference
+
+Method reference is used to refer method of functional interface. Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference.
+
+*Type of method reference*
+
+1. Reference to a static method
+2. Reference to an instance method
+3. Reference to a constructor
+
+
+
+##### Stream
+
+A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
+
+The steam API is used to process collections of objects.
+
+- A stream is not a data structure instead it takes input from the collections.
+- Stream does not change original data structure
+- Each intermediate operation is lazily executed and returns a stream as a result, hence various intermediate operations can be pipelined. Terminal operations mark the end of the stream and return the result.
+
+***Intermediate operations***
+
+​	filter(), map(), flatMap(), sorted(), peek(), limit(), skip()
+
+***Terminal operations***
+
+​	allMatch(), anyMatch(), noneMatch(), collect(), count(), forEach(), min(), max(), reduce(), findFirst(), findAny()
