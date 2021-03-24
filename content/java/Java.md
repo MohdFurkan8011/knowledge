@@ -660,3 +660,5 @@ The steam API is used to process collections of objects.
 ***Terminal operations***
 
 ​	allMatch(), anyMatch(), noneMatch(), collect(), count(), forEach(), min(), max(), reduce(), findFirst(), findAny()
+
+map() transforms data, where flatMap() is a combination of a map and a flat operation.
