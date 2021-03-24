@@ -510,3 +510,86 @@ The **final keyword** in java is used to restrict the user. The java final keywo
 
 #### Java 8 Features
 
+- [Date Time](#date-time)
+- [Lambda Expressions](#lambda-expressions)
+- [Functional Interface](#functional-interface)
+- [Method Reference](#method-reference)
+- [Stream](#stream)
+- [Default Method](#default-method)
+- [forEach Method](#forEach-method)
+- [Collectors](#collectors)
+- [String Joiner](#string-joiner)
+- [Optional Class](#optional-class)
+- [Parallel Array Sorting](#parallel-array-sorting)
+- [Type Inference](#type-inference)
+
+
+
+##### Date Time
+
+The java.time, java.util, java.sql and java.text packages contains classes for representing data and time.
+
+Java has introduced a new Date and Time API since java 8. The java.time package contains java 8 date and time classes.
+
+`LocalDate, LocalTime, LocalDateTime, MonthDay, OffsetTime, OffsetDateTime, Clock, Year, YearMonth, Period, Duration, DayOfWeek enum, Month`
+
+
+
+##### Lambda Expressions
+
+The Lambda expression is used to provide the implementation of an interface which has functional interface. It saves a lot of code. Lambda expressions are similar to methods, but they do not need a name.
+
+() -> parameter
+
+parameter -> expression
+
+(parameter1, parameter 2) -> expression
+
+(parameter1, parameter 2) -> { code block)
+
+> Benefit of lambda expression
+>
+> 1. Fewer line of cod
+> 2. Sequential and Parallel execution support by passing behavior in methods.
+
+
+
+##### Functional Interface
+
+An interface with exactly one abstract method is called Functional interface. ``@FunctionalInterface`` annotation is added so that we can mark an interface as functional interface.
+
+It is not mandatory to use it, but it is best practice to use it with functional interface to avoid addition of extra methods accidentally. If the interface is annotation with ``@FunctionalInterface`` annotation and we try to have more than one abstract method, it throws compile error.
+
+```
+The major benefit of java 8 functional interface is that we can use lambda expressions to instantiate them to avoid using bulky anonymous class implementation.
+```
+
+Steam API is introduced that uses a lot of functional interface.
+
+java.util.function has build in functional interfaces.
+
+- Consumer<T> -  Represents an operation that accepts a single input argument and returns no result.
+
+  It has two methods,
+
+  ```
+  void accept(T t) - Performs operation on the given argument
+  
+  default Consumer<T> andThen(Consumer<? super T> after) - return a composed Consumer that performs, in sequence, this operation followed by the after operation
+  ```
+
+  Others interfaces - BiConsumer<T,U>, DoubleConsumer, IntConsumer, LongConsumer, ObjDoubleConsumer<.T>, ObjIntConsumer<T>, ObjLongConsumer<T>
+
+  
+
+- Supplier<T> - takes no argument and returns output.
+
+  It has one methods
+
+  ```
+  T get()
+  ```
+
+  
+
+- Function<T,R> - Represents a function that accepts one argument and produces a result.
