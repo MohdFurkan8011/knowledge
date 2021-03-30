@@ -45,19 +45,35 @@ Bridge design pattern is used to decouple a class into two parts – *abstractio
 
 Composite design pattern helps to compose the objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 
+The composite pattern has four participates:
 
+1. **Component**: provides default behavior for the interface common to all classes as appropriate.
+
+2. **Leaf**: It represents leaf objects in the composition.
+
+3. **Composite**: Composites stores child components and implements child related operations in the component interface.
+
+4. **Client**: Client manipulates the objects in the composition through the component interface.
+
+   
 
 #### Decorator
 
 Decorator design pattern is used to add additional features or behaviors to a particular instance of a class, while not modifying the other instances of same class.
 
+“Wrapper” is the alternative nickname for the Decorator pattern that clearly expresses the main idea of the pattern. A *wrapper* is an object that can be linked with some *target* object. The wrapper contains the same set of methods as the target and delegates to it all requests it receives. However, the wrapper may alter the result by doing something either before or after it passes the request to the target.
+
 
 
 #### Facade
 
-The facade pattern is appropriate when you have a **complex system** that you want to expose to clients in a simplified way, or you want to make an external communication layer over an existing system which is incompatible with the system. Facade deals with interfaces, not implementation. Its purpose is to hide internal complexity behind a single interface that appears simple on the outside.
+Facade pattern hides the complexities of the system and provides an interface to the client using which the client can access the system. This type of design pattern comes under structural pattern as this pattern adds an interface to existing system to hide its complexities.
 
+This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.
 
+A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about.
+
+When you call a shop to place a phone order, an operator is your facade to all services and departments of the shop. The operator provides you with a simple voice interface to the ordering system, payment gateways, and various delivery services.
 
 #### Flyweight
 
@@ -67,11 +83,11 @@ Flyweight pattern is one of the [structural design patterns](https://www.geeksfo
 
 #### Proxy
 
-In proxy design pattern, a proxy object provide a surrogate or placeholder for another object to control access to it. Proxy is heavily used to implement lazy loading related usecases where we do not want to create full object until it is actually needed.
+In proxy design pattern, a proxy object provide a surrogate or placeholder for another object to control access to it. Proxy is heavily used to implement lazy loading related use cases where we do not want to create full object until it is actually needed.
 
 Proxies are generally divided into four types –
 
-1. **Remote proxy** – represent a remotely loctated object. To talk with remote objects, the client need to do additional work on communication over network. A proxy object does this communication on behalf of original object and client focuses on real talk to do.
+1. **Remote proxy** – represent a remotely located object. To talk with remote objects, the client need to do additional work on communication over network. A proxy object does this communication on behalf of original object and client focuses on real talk to do.
 2. **Virtual proxy** – delay the creation and initialization of expensive objects until needed, where the objects are created on demand. Hibernate created proxy entities are example of virtual proxies.
 3. **Protection proxy** – help to implement security over original object. They may check for access rights before method invocations and allow or deny access based on the conclusion.
 4. **Smart Proxy** – performs additional housekeeping work when an object is accessed by a client. An example can be to check if the real object is locked before it is accessed to ensure that no other object can change it.
@@ -95,8 +111,6 @@ A Command Pattern says that "*encapsulate a request under an object as a command
 #### Iterator
 
 Iterator pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
-
-
 
 #### State
 
