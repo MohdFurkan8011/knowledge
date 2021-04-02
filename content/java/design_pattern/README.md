@@ -112,6 +112,26 @@ A Command Pattern says that "*encapsulate a request under an object as a command
 
 Iterator pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
 
+
+
+##### Mediator
+
+**Mediator** is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
+
+
+
+##### Memento
+
+**Memento** is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
+
+
+
+##### Observer
+
+**Observer** is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
+
+
+
 #### State
 
 In state pattern allows an object to alter its behavior when its internal state changes. The object will appear to change its class. There shall be a separate concrete class per possible state of an object.
