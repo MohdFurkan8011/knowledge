@@ -18,11 +18,11 @@ Java 5 added a new package to the java platform. the java.util.concurrent packag
 
    ​	e. [SynchronousQueue](#synchronousqueue)
 
-   ​	f. [BlockingDeque]()
+   ​	f. [BlockingDeque](#blockingdeque)
 
-   ​	g. [LinkedBlockingDeque]()
+   ​	g. [LinkedBlockingDeque](#linkedblockingdeque)
 
-2. [ConcurrentMap]()
+2. [ConcurrentMap](#concurrentmap)
 
 3. [CountDownLatch]()
 
@@ -222,4 +222,20 @@ deque.addLast("2");
 String two = deque.takeLast();
 String one = deque.takeFirst();
 ```
+
+
+
+
+
+#### ConcurrentMap
+
+The `java.util.concurrent.ConcurrentMap` interface represents a Map which is capable of handling concurrent access (puts and gets) to it.
+
+The `ConcurrentMap` has a few extra atomic methods in addition to the methods it inherits from its superinterface, `java.util.Map`.
+
+##### ConcurrentHashMap
+
+The `ConcurrentHashMap` is very similar to the `java.util.HashTable` class, except that `ConcurrentHashMap` offers better concurrency than `HashTable` does. `ConcurrentHashMap` does not lock the `Map` while you are reading from it. Additionally, `ConcurrentHashMap` does not lock the entire `Map` when writing to it. It only locks the part of the `Map` that is being written to, internally.
+
+Another difference is that `ConcurrentHashMap` does not throw `ConcurrentModificationException` if the `ConcurrentHashMap` is changed while being iterated.
 
