@@ -399,3 +399,67 @@ public class ExchangerRunnable implements Runnable{
 }
 ```
 
+
+
+
+
+#### ExecutorService
+
+The executor service creates and maintains a reusable pool of threads for executing submitted tasks. The service also manages a queue, which is used when there are more tasks than the number of threads in the pool and there is a need to queue up tasks until there is a free thread available to execute the task.
+
+```java
+ExecutorService executorService1 = Executors.newSingleThreadExecutor();
+
+ExecutorService executorService2 = Executors.newFixedThreadPool(10);
+
+ExecutorService executorService3 = Executors.newScheduledThreadPool(10);
+
+ExecutorService executor = Executors.newCachedThreadPool();
+```
+
+##### Methods
+
+1. execute(Runnable runnable) - execute a runnable instance
+2. submit(Runnable or Callable) - execute a callable and return a Future
+3. invokeAny(List<Callable> listOfCallable) - invoke one from any task, and returns the result of task, and cancelled other tasks.
+4. invokeAll(List<Callable> lisstOfCallable) - invoke all tasks and returns a list of Future objects
+5. shutdown() - To terminate the threads inside the ExecutorService you call its showdown() method. The executor service will not show down immediately, but it will no longer accept new task, and once all threads have finished current tasks, the ExecutorService shots down.
+6. shutdownNow() - If you want to shutdown the ExecutorService immediately, you can call this method. This will attempt to stop all executing tasks right away, and skips all submitted but non-processed tasks.
+7. awaitTermination() - combination of shutdown() and shutdownNow(), because it takes times.
+
+
+
+##### Runnable vs Callable
+
+The `Runnable` interface is very similar to the `Callable` interface. The Runnable interface represents a task that can be executed concurrently by a thread or an `ExecutorService`. The Callable can only be executed by an ExecutorService. Both interfaces only has a single method. There is one small difference between the `Callable` and `Runnable` interface though. The difference between the `Runnable` and `Callable` interface is more easily visible when you see the interface declarations.
+
+```java
+public interface Runnable {
+    public void run();
+}
+```
+
+```java
+public interface Callable{
+    public Object call() throws Exception;
+}
+```
+
+The main difference between the `Runnable` `run()` method and the `Callable` `call()` method is that the `call()` method can return an `Object` from the method call. Another difference between `call()` and `run()` is that `call()` can throw an exception, whereas `run()` cannot (except for unchecked exceptions - subclasses of `RuntimeException`).
+
+
+
+#### Future
+
+A Java *Future*, `java.util.concurrent.Future`, represents the result of an asynchronous computation. When the asynchronous task is created, a Java `Future` object is returned. This `Future` object functions as a handle to the result of the asynchronous task. Once the asynchronous task completes, the result can be accessed via the `Future` object returned when the task was started.
+
+```java
+public interface Future<V> {
+    boolean cancel(boolean mayInterruptIfRunning)
+    V       get();
+    V       get(long timeout, TimeUnit unit);
+    boolean isCancelled();
+    boolean isDone();
+}
+```
+
