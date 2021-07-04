@@ -19,11 +19,17 @@ Design patterns can speed up the development process by providing tested, proven
   - [Facade](#facade)
   - [Flyweight](#flyweight)
   - [Proxy](#proxy)
-- [Behavioral]()
-  - [Chain of responsibility](#chain of responsibility)
+- [Behavioral](#Behavioral)
+  - [Chain of responsibility](#chain_of_responsibility)
   - [Command](#command)
   - [Iterator](#iterator)
+  - [Mediator](#mediator)
+  - [Memento](#memento)
+  - [Observer](#observer)
   - [State](#state)
+  - [Strategy](#strategy)
+  - [Template Method](#template_method)
+  - [Visitor](#visitor)
 
 
 
@@ -100,38 +106,38 @@ Proxies are generally divided into four types –
 
 Chain of responsibility design pattern gives more than one object an opportunity to handle a request by linking receiving objects together in form of a chain.
 
-
-
 #### Command
 
 A Command Pattern says that "*encapsulate a request under an object as a command and pass it to invoker object. Invoker object looks for the appropriate object which can handle this command and pass the command to the corresponding object and that object executes the command*".
-
-
 
 #### Iterator
 
 Iterator pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
 
-
-
-##### Mediator
+#### Mediator
 
 **Mediator** is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
 
-
-
-##### Memento
+#### Memento
 
 **Memento** is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
 
-
-
-##### Observer
+#### Observer
 
 **Observer** is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
-
-
 
 #### State
 
 In state pattern allows an object to alter its behavior when its internal state changes. The object will appear to change its class. There shall be a separate concrete class per possible state of an object.
+
+#### Strategy
+
+**Strategy** is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+
+#### Template Method
+
+**Template Method** is a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+
+#### Visitor
+
+**Visitor** is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.
