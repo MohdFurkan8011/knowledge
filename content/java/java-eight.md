@@ -16,7 +16,7 @@
 - String Joiner
 - [Optional Class](#optional-class)
 - Type Inference
-- [HashMap changing](#hashmap_changing)
+- [HashMap Changing](#hashmap-changing)
 
 
 
