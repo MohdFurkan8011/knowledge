@@ -10,8 +10,10 @@
 8. [Clone](clone/clone.md)
 9. [Collection](collection/README.md)
 10. [Java 8](java-eight.md)
-11. [Solid Principle of Java](solid/README.md)
-12. [Design Pattern](design_pattern/README.md)
-13. Thread
-14. [Concurrent Package](concurrent/README.md)
+11. [Garbage Collector](garbage-collector.md)
+12. [Memory Model](memory-model.md)
+13. [Solid Principle of Java](solid/README.md)
+14. [Design Pattern](design_pattern/README.md)
+15. Thread
+16. [Concurrent Package](concurrent/README.md)
 
