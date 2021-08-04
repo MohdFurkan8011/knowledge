@@ -110,4 +110,69 @@ A streaming process is the processing of data in parallelly connected systems. T
 
     
 
-    
+
+#### Type of Kafka Clusters
+
+1. Single Node - Single Broker Cluster
+2. Single Node - Multiple Broker Cluster
+3. Multiple Nodes - Multiple Broker Cluster
+
+
+
+#### Download kafka & Zookeeper
+
+https://kafka.apache.org/downloads
+
+https://zookeeper.apache.org/releases.html
+
+
+
+**Run Zookeeper**
+
+Rename zoo_sample.cfg to zoo.cfg  and add the following lines to enable some commands. This file is in config folder
+
+`4lw.commands.whitelist=*`
+
+Open command prompt in bin folder then type 
+
+`zkServer.bat and run zookeeper`
+
+**Run Kafka**
+
+Go to config folder of kafka then open server.properties file and find listeners=PLAINTEXT:// and change to listeners=PLAINTEXT://localhost:9092
+
+open command prompt in bin folder and type following command
+
+`kafka-server-start.bat ../../config/server.properties`
+
+**Create topic**
+
+open command prompt in kafka bin folder then type following command
+
+`kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partions 1 --topic test`
+
+**Start producer console**
+
+open command prompt in kafka bin folder then type following command
+
+`kafka-console-producer.bat --broker-list localhost:9092 --topic test`
+
+**Start Consumer console**
+
+open command prompt in kafka bin folder then type following command
+
+`kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning`
+
+
+
+Type in producer and enter then see in consumer.
+
+
+
+#### Some other commands
+
+1. kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --group myGroupName
+2. kafka-topics.bat --zookeeper localhost:2181 --list
+3. kafka-topics.bat --zookeeper localhost:2181 --describe --topic test
+4. kafka-consumer-groups.bat bootstrap-server localhost:9092 --list
+5. 
