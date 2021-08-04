@@ -55,4 +55,109 @@ A node is a single server that holds some data and participates on the cluster's
 
 #### Shard
 
-Data in Elasticsearch is organized into indices. Each index is made up of one or more shards. Each shard is an instance of a Lucene index, which can you think of as a self-contained search engine that indexes and handles queries for a subset of the data in an Elasticsearch cluster. 
+Data in Elasticsearch is organized into indices. Each index is made up of one or more shards. Each shard is an instance of a Lucene index, which can you think of as a self-contained search engine that indexes and handles queries for a subset of the data in an Elasticsearch cluster.
+
+
+
+#### Working with Elasticsearch
+
+download elastic search using https://www.elastic.co/downloads/elasticsearch extract and go to lib folder and run elasticsearcg.bat for Window.
+
+download Kibana using https://www.elastic.co/downloads/kibana extract and go to lib folder and run kibana.bat for Window.
+
+after that
+
+http://localhost:9200 type in the browser for elastic search
+
+http://localhost:5601 type in the browser for kibana
+
+
+
+#### Indexing Some data 
+
+```java
+PUT /customer/_doc/1
+{
+  "name": "John Doe"
+}
+```
+
+
+
+```java
+GET /customer/_doc/1
+```
+
+#### Searching
+
+```java
+GET /customer/_search
+{
+  "query": { "match_all": {} },
+  "sort": [
+    { "name": "asc" }
+  ]
+}
+```
+
+```java
+GET /bank/_search
+{
+  "query": { "match_all": {} },
+  "sort": [
+    { "account_number": "asc" }
+  ],
+  "from": 10,
+  "size": 10
+}
+```
+
+```java
+GET /bank/_search
+{
+  "query": { "match": { "address": "mill lane" } }
+}
+```
+
+```java
+GET /bank/_search
+{
+  "query": { "match_phrase": { "address": "mill lane" } }
+}
+```
+
+```java
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "age": "40" } }
+      ],
+      "must_not": [
+        { "match": { "state": "ID" } }
+      ]
+    }
+  }
+}
+```
+
+```java
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": { "match_all": {} },
+      "filter": {
+        "range": {
+          "balance": {
+            "gte": 20000,
+            "lte": 30000
+          }
+        }
+      }
+    }
+  }
+}
+```
+
