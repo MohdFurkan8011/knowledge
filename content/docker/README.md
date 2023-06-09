@@ -1,6 +1,7 @@
 # Docker
 
 - [Introduction](#introduction)
+- [Docker environment](#docker-environment)
 - [Docker file](#docker-file)
 - [Docker image](#docker-image)
 - [Docker container](#docker-container)
@@ -23,27 +24,55 @@ It solves the dependencies problem which are required to run applications.
 
 
 
+### Docker Environment
+
+![](D:\MohdFurkan\knowledge\content\images\docker_env.png)
+
+
+
+#### Docker Engine
+
+Docker engine is as the suggests, its technology that allows for the creation and management of all the Docker processes. It has three major parts to it.
+
+	1. **Docker CLI** (It provides command line interface for writing command for docker like. docker -v)
+	1. **Docker AP**I (It an application programming interface which sends all the commands to docker daemon )
+	1. **Docker Daemon** (it processes all the think in actually. It creates container, network, volume or storage etc. )
+
+#### Docker Object
+
+There are the following docker objects
+
+1. **Docker images** - Docker images are sets of instructions that are used to create containers and execute code inside it. Docker image is a template to create a docker container.
+2. **Docker containers** -  Running instance of the docker image. Containers hold entire package to run application.
+3. **Docker volumes** - Docker volumes are the basically persistent storage locations for the containers. They can be easily & safely attached and removed from different container. They are also portable from system to another.
+4. **Docker volume drivers** - Docker volumes drivers allow you to perform unique abilities such as creating persistent storage to other hosts, cloud, encrypt volumes. They basically enhance the abilities of a volume.
+5. **Docker networks** - A docker network is basically a connection one or more containers. One of the more powerful things about the Docker containers is that they can be easily connected to one other and even software, this make it very easy to isolated and manage the containers. 
+
+#### Docker registry
+
+You can think of registries as storage locations for Docker images. These images can be versioned in the registry as well. You have many options for Docker registry, you can go with DockerHub as your main Docker registry as there is already a Docker command to pull and push images to it. If you do not want to use DockerHub there are many alternatives to it. ECR(Elastic container registry - AWS) , JFrog, Azure
+
+#### Docker compose
+
+For now let's just understand that Docker compose is just a service with docker that let's us launch multiple containers at the same time.
+
+#### Docker swarm
+
+Docker swarm is a service within docker that allows us to manage multiple containers.
+
+
+
 ### Docker file
 
 Text document which contains all the commands that a user can call on the command line to assemble an image.
 
 
 
-### Docker image
-
-Docker image is a template to create a docker container.
-
-
-
-### Docker container
-
-Running instance of the docker image. Containers hold entire package to run application.
-
 > https://www.cyberithub.com/solved-wslregisterdistribution-failed-with-error-0x80370114/#:~:text=Sometimes%20when%20you%20are%20trying,linux%20installation%20won't%20start.
 
 
 
-
+### Docker commands
 
 
 
@@ -79,6 +108,8 @@ Running instance of the docker image. Containers hold entire package to run appl
 >
 > docker rm container-id - removes container
 >
+> docker rm container-id -f - forcefully removes container
+>
 > docker rmi image-name
 >
 > docker restart container-name
@@ -87,7 +118,7 @@ Running instance of the docker image. Containers hold entire package to run appl
 >
 > docker login
 >
-> docker commit
+> docker commit containerid customimage
 >
 > docker push
 >
@@ -100,3 +131,11 @@ Running instance of the docker image. Containers hold entire package to run appl
 > docker logout
 >
 > docker build -t tagname   : create image
+>
+> service nginx status
+>
+> service nginx start
+>
+> docker kill containerID -- aggressive command
+
+​	
