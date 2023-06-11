@@ -3,8 +3,9 @@
 - [Introduction](#introduction)
 - [Docker environment](#docker-environment)
 - [Docker file](#docker-file)
-- [Docker image](#docker-image)
-- [Docker container](#docker-container)
+- [Docker storage](#docker-storage)
+- [Docker drivers](#docker-drivers)
+- [Docker network](#docker-network)
 
 
 
@@ -34,9 +35,9 @@ It solves the dependencies problem which are required to run applications.
 
 Docker engine is as the suggests, its technology that allows for the creation and management of all the Docker processes. It has three major parts to it.
 
-	1. **Docker CLI** (It provides command line interface for writing command for docker like. docker -v)
-	1. **Docker AP**I (It an application programming interface which sends all the commands to docker daemon )
-	1. **Docker Daemon** (it processes all the think in actually. It creates container, network, volume or storage etc. )
+1. **Docker CLI** (It provides command line interface for writing command for docker like. docker -v)
+1. **Docker AP**I (It an application programming interface which sends all the commands to docker daemon )
+1. **Docker Daemon** (it processes all the think in actually. It creates container, network, volume or storage etc. )
 
 #### Docker Object
 
@@ -64,7 +65,75 @@ Docker swarm is a service within docker that allows us to manage multiple contai
 
 ### Docker file
 
-Text document which contains all the commands that a user can call on the command line to assemble an image.
+Docker files are basically scripts that you can write and then build into an image. The image can then be run to create the container. Its like a shell script. Or basically a text file having commands for generating images.
+
+##### Docker file format (some important commands)
+
+1. **FROM** - It is an instruction that informs docker about the base image that is to be used for the container. So basically if you have an image in mind whose properties you wish to inherit you can mention it using this instruction. This is always used as the first instruction for any docker image, but you can use it multiple times. 
+2. **ADD** - It is used to add new sources from your local directory or a URL to the file system of the image that will become the container in designated location. You can include multiple items as the source and can even make use of wildcards and if the designation that you have mentioned does not exist then it will create one.
+3. **COPY** - It is used to copy new resources from only your local directory to the file system of the image that will become the container in the designated location. You can include multiple items as the source and can even make use of wildcards and if the designation that you have mentioned does not exist then it will create one. It is similar to ADD, the difference being that ADD can also add new ULR to the file system whereas copy can't.
+4. **RUN** - This instruction is used to run specific commands that you want run in the container during its creation. For example, you want to update the ubuntu instance then you can use the instruction as such: RUN apt get update
+5. **WORKDIR** - This instruction is responsible for setting the working directory so that you can run shell commands in that specific directory during the build time of the image.
+6. **CMD** - This instruction tells the container what command to run when it gets started.
+7. **VOLUME** - This instruction makes a mount point for the volume of a specified name.
+8. **EXPOSE** - This instruction tells what port the container should be exposed at. But this can only happen for an internal network, the host will not be able to access the container from this port. 
+9. **ENTRYPOINT** - This instruction allows you to run commands when you container starts with parameters. The difference between CMD and ENTERYPOINT is that with ENTRYPOINT you command is not overwritten during runtime. When you use ENTRYPOINT it will overwrite any element specified in another CMD instruction.
+10. **LABEL** - This instruction is used to add Meta data to you image. You need to make use of quotes & backslashes if you want to include spaces. If there are any older labels they will be replaced with the new label value. You can make use of Docker inspect command to see it's container. Since a new layer is created each time a new instruction is written. It is important to write in the most optimized way as possible and least number of instructions as possible.
+
+
+
+### Docker storage
+
+Normally if you wanted to store data in Docker container it would be stored in the writable layer of the Docker container, but this is not an efficient way to store data. So we make use of different container storage types. These storage types have a lot of advantages over the default storage method.
+
+####  Types of storage
+
+1. **Volumes** - Dockers volumes are basically persistent storage location for the containers. They are managed by Docker completely. They can be easily attached and removed from containers. You can backup your volumes also. This is the most used type of data storage.
+
+​		
+
+```java
+docker volume create volume-name
+docker volume ls
+docker inspect batman
+docker volume rm volume-bame
+dockder volume prune
+docker run -it -d --name container-name --mount source=batman, target=/app image-name
+docker run -it -d --name container-name --volume volumename:/designation image-name
+docker run -it -d --name container-name --mount source=spiderman,target=/app,readonly image-name
+```
+
+
+
+2. **Bind mount** - This is same as volumes except Host can see and manage this space.
+
+```
+docker run -it -d --name container-name --mount type=bind,source=/home/ubuntu/project,target=/app ubuntu
+docker run -it -d --name container-name --mount type=bind,source=/home/ubuntu/project,target=/app,readonly ubuntu
+```
+
+
+
+3. **Tmpfs mount** - Temporarily storage it lives until a container live that is why file system is not required.  Only works on Linux. They only ever get mapped to a single container in their lifetime. Allows you store more temporary data without affecting a container's efficiency.
+
+```
+docker run -it -d --name container-name --mount type=tmpfs,destination=/app image-name
+```
+
+
+
+### Docker drivers
+
+In situation where you have to write in the Docker's writable layer you can make use of specific storage drivers. These will allow you to maintain control over how docker images & containers are managed and stored. 
+Here are a few of the storage drivers.
+
+**Overlay2, aufs, devicemapper, btrfs, vfs**
+
+
+
+### Docker network
+
+
 
 
 
