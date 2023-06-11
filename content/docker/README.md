@@ -6,6 +6,7 @@
 - [Docker storage](#docker-storage)
 - [Docker drivers](#docker-drivers)
 - [Docker network](#docker-network)
+- [Docker compose](#docker-compose)
 
 
 
@@ -59,7 +60,7 @@ For now let's just understand that Docker compose is just a service with docker 
 
 #### Docker swarm
 
-Docker swarm is a service within docker that allows us to manage multiple containers.
+Docker swarm is a service within docker that allows us to manage multiple containers on multiple nodes.
 
 
 
@@ -95,11 +96,11 @@ Normally if you wanted to store data in Docker container it would be stored in t
 ```java
 docker volume create volume-name
 docker volume ls
-docker inspect batman
+docker volume inspect volume-name
 docker volume rm volume-bame
 dockder volume prune
 docker run -it -d --name container-name --mount source=batman, target=/app image-name
-docker run -it -d --name container-name --volume volumename:/designation image-name
+docker run -it -d --name container-name --volume volume-name:/designation image-name
 docker run -it -d --name container-name --mount source=spiderman,target=/app,readonly image-name
 ```
 
@@ -132,6 +133,58 @@ Here are a few of the storage drivers.
 
 
 ### Docker network
+
+A Docker network is basically a connection between one or more containers. One of the powerful things about the Docker containers is that they can be easily connected to one other and even other software, this makes it is very easy to isolate and manage containers.
+
+##### Types of docker network
+
+1. **Bridge** - Docker containers that are connected by the means of a bridge network can communicate with each other. This also creates a layer of isolation between the docker container that are connected to each other through a bridge network.
+
+   ```
+   docker network create --driver bridge network-name
+   docker network ls
+   docker network rm network-id
+   docker run -it -d --network batman-net --name mycontainer -p 80:80 ubuntu
+   docker container inspect container-id
+   docker network connect batman-net container-id
+   docker network disconnect batman-net container-id
+   docker network inspect batman-net
+   ```
+
+   
+
+2. **Host** - Docker containers that are connected to host network basically share the namespace with their hosts, i.e. the containers share the IP address of the host and don't have one of their own.
+
+   ```
+   docker run -it -d --network host --name container-name image-name
+   docker network inspect network-name
+   ```
+
+   
+
+3. **Overlay** - Docker daemon hosts that are connected by the means of an overlay network can communicate with each other. This means that containers present in different docker hosts can communicate with each other using the overlay network. This is useful when we need a set of docker hosts to communicate with each other in a docker swarm.
+
+   ```
+   docker swarm init
+   docker network create --driver overlay name-network
+   docker service create --name yourservice --network overlay--replicas 2 ubuntu\
+   docker network inspect network-name
+   
+   ```
+
+   
+
+4. **Macvlan**
+
+5. **None** - A docker container which has none network configured for itself can not communicate with any services or system as networking for the container is virtually disabled. It is usually used to isolated certain containers.
+
+   ```
+   docker run -it -d --network none  --name container-name image-name
+   ```
+
+   
+
+### Docker compose
 
 
 
