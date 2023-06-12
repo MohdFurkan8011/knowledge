@@ -1,20 +1,35 @@
 # Docker
 
 - [Introduction](#introduction)
+- [Why docker](#why-docker?)
 - [Docker environment](#docker-environment)
 - [Docker file](#docker-file)
 - [Docker storage](#docker-storage)
 - [Docker drivers](#docker-drivers)
 - [Docker network](#docker-network)
 - [Docker compose](#docker-compose)
+- [Docker swarm](#docker-swarm)
 
 
 
 ### Introduction
 
-Docker is an open platform for developing, shipping and running applications.
+- Docker is an open platform for developing, shipping and running applications.
 
-Docker is a platform which packages an applications and all its dependencies together in the form of containers.
+
+- Docker is a platform which packages an applications and all its dependencies together in the form of containers.
+
+- Docker is a tool for running applications in an isolated environment.
+
+- Similar to virtual machine
+
+- App run in same environment
+
+- Just works
+
+- Standard for software deployment
+
+
 
 #### What problems docker solves?
 
@@ -23,6 +38,16 @@ It solves the dependencies problem which are required to run applications.
 #### Understand the docker
 
 ![](D:\MohdFurkan\knowledge\content\images\docker_understand.png)
+
+
+
+### Why Docker?
+
+1. Simple
+2. Fast
+3. Easy collaboration
+4. Built for Developers, by developers
+5. Docker community
 
 
 
@@ -45,7 +70,7 @@ Docker engine is as the suggests, its technology that allows for the creation an
 There are the following docker objects
 
 1. **Docker images** - Docker images are sets of instructions that are used to create containers and execute code inside it. Docker image is a template to create a docker container.
-2. **Docker containers** -  Running instance of the docker image. Containers hold entire package to run application.
+2. **Docker containers** -  Containers are software that wrap up all the parts of a code and all its dependencies into a single deployable unit that can be used on different systems and servers. (code + libraries) = container, and can run on any operating system. Multiple isolated containers can be launched together to form Microservices which can be easily managed using any orchestration tool e.g. Docker swarm, Kubernetes, etc.
 3. **Docker volumes** - Docker volumes are the basically persistent storage locations for the containers. They can be easily & safely attached and removed from different container. They are also portable from system to another.
 4. **Docker volume drivers** - Docker volumes drivers allow you to perform unique abilities such as creating persistent storage to other hosts, cloud, encrypt volumes. They basically enhance the abilities of a volume.
 5. **Docker networks** - A docker network is basically a connection one or more containers. One of the more powerful things about the Docker containers is that they can be easily connected to one other and even software, this make it very easy to isolated and manage the containers. 
@@ -185,6 +210,65 @@ A Docker network is basically a connection between one or more containers. One o
    
 
 ### Docker compose
+
+Docker compose is just a service within Docker that let's us launch multiple containers at the same time. We give all configuration in yml file, in this we can put all information in two ways 1. map (key-value) 2. list(using -) 
+
+```
+docker-compose up
+docker-compose down
+```
+
+
+
+### Docker swarm
+
+##### Why orchestration 
+
+Orchestration allows us to manage and maintain multiple containers. This is especially helpful in software development where we may be making use of micro-services architecture as it breaks down the software into small manageable chunks. Having different configuration and environment becomes easier with orchestration.
+
+##### Benefits of orchestration
+
+1. Easy deployment
+2. Easy management
+3. Easy resource management
+4. Allows for health monitoring of the containers
+5. Load balancing among different containers
+6. Easy updating
+7. Easy scaling up and rolling back
+8. Creates a layer of security
+
+
+
+Docker swarm is an orchestration service within Docker that allows us to manage and handle multiple containers at the same time. It is also a clusters of multiple containers. It has a manager node and multiple worker nodes.
+
+![](D:\MohdFurkan\knowledge\content\images\docker_swarm.png)
+
+
+
+```dockerfile
+docker swarm init --advertise-addr ip-address
+docker node ls
+docker swarm join-token worker
+docker info
+docker swarm join-token manager --- we can add 7 manager only.
+docker swarm leave
+docker node rm node-id
+docker swarm leave --force
+docker service create --name our-service --replicas 3 -p 80:80 image-name
+docker service ls
+docker ps
+docker service ps our-service
+docker service inspect service-name --pretty
+docker service rm service-name
+docker stack deploy -c docker-compose.yml stack-name
+docker service scale service-name=3
+docker node update --availability drain node-id
+docker service update --network -add batman service-name
+docker service update --mount -add type=volume, source=/scr/app, target=/src/app service-name
+docker service update --image mysql:latest service-db
+
+
+```
 
 
 
