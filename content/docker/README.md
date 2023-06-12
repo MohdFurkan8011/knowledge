@@ -48,6 +48,7 @@ It solves the dependencies problem which are required to run applications.
 3. Easy collaboration
 4. Built for Developers, by developers
 5. Docker community
+6. Uses less memory
 
 
 
@@ -110,7 +111,7 @@ Docker files are basically scripts that you can write and then build into an ima
 
 ### Docker storage
 
-Normally if you wanted to store data in Docker container it would be stored in the writable layer of the Docker container, but this is not an efficient way to store data. So we make use of different container storage types. These storage types have a lot of advantages over the default storage method.
+Normally if you wanted to store data in Docker container it would be stored in the writable layer of the Docker container, but this is not an efficient way to store data. So we make use of different container storage types. These storage types have a lot of advantages over the default storage method, and this data can be shared between host and containers.
 
 ####  Types of storage
 
@@ -297,6 +298,10 @@ docker service update --image mysql:latest service-db
 > docker ps : to show doctor containers
 >
 > docker ps -a
+>
+> docker ps --help
+>
+> docker rm $(docker ps -aq)
 >
 > docker run --name javacontainer -d openjdk
 >
