@@ -9,6 +9,12 @@
 - [Docker network](#docker-network)
 - [Docker compose](#docker-compose)
 - [Docker swarm](#docker-swarm)
+- [Docker cache](#docker-cache)
+- [Docker alpine](#docker-alpine)
+- [Docker tagging versioning](#docker-tagging-versioning)
+- [Docker registry](#docker-registry)
+- [Docker inspect](#docker-inspect)
+- [Docker logs](#docker-logs)
 
 
 
@@ -269,6 +275,66 @@ docker service update --mount -add type=volume, source=/scr/app, target=/src/app
 docker service update --image mysql:latest service-db
 
 
+```
+
+
+
+### Docker cache
+
+
+
+
+
+### Docker alpine
+
+Docker alpine is for the images which takes a less storage. When you see tags description on docker hub, you can find out alpine version is also there.
+
+We can also convert our image into alpine version
+
+
+
+### Docker tagging versioning
+
+- Allows you to control image version
+- Avoids breaking changes
+- Safe
+- have full control
+
+If you build image with the same tag, it replace previous one and create new one.
+
+```
+docker tag amigoscode-website:latest amigoscode:1
+```
+
+
+
+### Docker registry
+
+- Highly scalable server side application that stores and lets you distribute Docker images.
+- Used in your CD/CI pipeline
+- Run you applications
+- There are two types of register public/private
+- Docker hub, quay.io and Amazon ECR
+
+```
+docker push repository-name/image-name:tag_name
+
+```
+
+
+
+### Docker inspect
+
+```
+docker inspect container-id
+```
+
+
+
+### Docker logs
+
+```
+docker logs container-id
 ```
 
 
