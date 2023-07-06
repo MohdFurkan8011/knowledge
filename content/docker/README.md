@@ -339,6 +339,10 @@ docker logs container-id
 
 
 
+![](D:\MohdFurkan\knowledge\content\images\docker-process.png)
+
+
+
 
 
 > https://www.cyberithub.com/solved-wslregisterdistribution-failed-with-error-0x80370114/#:~:text=Sometimes%20when%20you%20are%20trying,linux%20installation%20won't%20start.
