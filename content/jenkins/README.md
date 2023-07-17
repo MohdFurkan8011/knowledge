@@ -158,3 +158,49 @@ Manage Jenkins > Manage nodes and clouds > New node
 
 
 
+
+
+```
+pipeline {
+    agent any
+    stages {
+	
+        stage('GIT') {
+            steps {
+                git branch: 'dev', credentialsId: '7ddfa6e4-f9b9-4c67-8efb-73e3e79b9787', url: 'git@gitlab.com:accudoc/ips-server.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''chmod -R u+x ./mvnw
+                    ./mvnw clean
+                    ./mvnw package -Dmaven.test.skip=true'''
+            }
+        }
+        stage('SonarQube analysis') {
+            environment {
+                SCANNER_HOME = tool 'SonarQubeScanner4.8.0'
+            }
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                sh """$SCANNER_HOME/bin/sonar-scanner \
+                    -Dsonar.projectVersion=1.0-SNAPSHOT \
+                    -Dsonar.projectBaseDir=/var/jenkins_home/workspace/TEST_NEW_IPS_SERVER/ \
+                    -Dsonar.projectKey=server \
+                    -Dsonar.sourceEncoding=UTF-8 \
+                    -Dsonar.language=java \
+                    -Dsonar.sources=src/main \
+                    -Dsonar.tests=src/test \
+                    -Dsonar.java.binaries=./target/classes"""
+                }
+            }
+        }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+    }
+}
+```
+
