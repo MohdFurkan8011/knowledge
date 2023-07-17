@@ -156,5 +156,5 @@ Manage Jenkins > Manage nodes and clouds > New node
 
 ![](D:\MohdFurkan\knowledge\content\images\docker_jenkins.png)
 
-### 
+
 
