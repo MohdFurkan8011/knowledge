@@ -211,3 +211,42 @@ KeyPair kp = kpg.generateKeyPair();
 | Key size | Large | Small |
 | Security | Good | Excellent |
 | Randomness dependency | Yes | No |
+
+
+### Nashorn JavaScript Engine
+
+Nashorn JavaScript Engine in Java 15
+1. ***What Is Nashorn?***
+
+Nashorn was a JavaScript engine built into Java that allowed you to:
+- Run JavaScript code inside Java
+- Call Java code from JavaScript
+- Use JavaScript as a scripting language for JVM apps
+
+Introduced in Java 8.
+
+2. ***What Changed in Java 15?***
+❌ Nashorn Was REMOVED
+
+- Nashorn was deprecated in Java 11
+- Completely removed in Java 15
+- No longer part of the JDK
+
+👉 If your app used Nashorn, it will not work on Java 15+ without changes.
+
+3. ***Why Was Nashorn Removed?***
+Main Reasons
+
+JavaScript evolves very fast
+- ECMAScript changes yearly
+- Nashorn lagged behind modern JS features
+
+High maintenance cost
+- Hard to keep up with JS standards
+- Complex to maintain inside the JDK
+
+Better alternatives exist
+
+- GraalVM JavaScript
+- Node.js
+- External JS engines
