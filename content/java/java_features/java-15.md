@@ -133,9 +133,9 @@ In Java 15:
 
 ***Comparison with Traditional GCs***
 | GC Type | Pause Time | Heap Size Handling | Java 15 Status |
-|----------|----------|----------|
-| Serial GC  | High  | Small heaps  | Stable  |
-| Parallel GC  | Medium–High  | Medium heaps  | Stable  |
-| G1 GC (default)  | Low–Medium  | Large heaps  | Stable  |
-| ZGC  | Very Low  | Huge heaps  | Production  |
-| Shenandoah | Very Low  | Huge heaps  | Production  |
+|---------|------------|--------------------|----------------|
+| Serial GC | High | Small heaps | Stable |
+| Parallel GC | Medium–High | Medium heaps | Stable |
+| G1 GC (default) | Low–Medium | Large heaps | Stable |
+| ZGC | Very Low | Huge heaps | Production |
+| Shenandoah | Very Low | Huge heaps | Production |
