@@ -139,3 +139,75 @@ In Java 15:
 | G1 GC (default) | Low–Medium | Large heaps | Stable |
 | ZGC | Very Low | Huge heaps | Production |
 | Shenandoah | Very Low | Huge heaps | Production |
+
+
+#### EdDSA
+
+1. What Is EdDSA? (In Simple Words)
+
+- EdDSA is a modern digital signature algorithm used to:
+- Prove who sent a message
+- Ensure the message was not changed
+- Provide strong security with high performance
+
+👉 Think of it as a very fast, very secure digital signature.
+
+2. Why Do We Need Digital Signatures?
+
+Digital signatures are used for:
+- HTTPS / TLS
+- JWT tokens
+- Software updates
+- API authentication
+- Blockchain and crypto systems
+
+They guarantee:
+- Authenticity
+- Integrity
+- Non-repudiation
+
+3. Why EdDSA Is Important (Compared to Older Algorithms)
+
+***Older Algorithms***
+- RSA
+- DSA
+- ECDSA
+
+***Problems with Older Ones***
+
+- Slower
+- More complex
+- Easy to misuse
+
+Some depend on random numbers (which can be risky)
+
+4.  What Makes EdDSA Special?
+
+Key Advantages
+i. Very Fast
+- Faster than RSA and ECDSA
+- Great for high-throughput systems
+
+ii. Very Secure
+- Based on Edwards elliptic curves
+- Strong resistance to common attacks
+
+iii. Deterministic
+- Does not rely on random numbers during signing
+- Avoids bugs that broke ECDSA in the past
+
+iv. Simple & Safe API
+- Harder to misuse
+- Fewer configuration mistakes
+
+```java
+KeyPairGenerator kpg = KeyPairGenerator.getInstance("Ed25519");
+KeyPair kp = kpg.generateKeyPair();
+```
+
+| Feature | RSA | EdDSA |
+|--------|-----|-------|
+| Speed | Slow | Very fast |
+| Key size | Large | Small |
+| Security | Good | Excellent |
+| Randomness dependency | Yes | No |
