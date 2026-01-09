@@ -12,7 +12,7 @@
 - [Nashorn JavaScript Engine](#nashorn-javascript-engine)
 
 
-#### Text Blocks
+### Text Blocks
 ***Why it matters***: Greatly improves code readability and maintainability.
 Allows multi-line strings using """.
 Ideal for SQL, JSON, XML, HTML, and large text.
@@ -26,7 +26,7 @@ String query = """
 ```
 
 
-#### Sealed Classes
+### Sealed Classes
 ***Why it matters:*** Better domain modeling and safer inheritance.
 Limits which classes can extend or implement a type.
 Helps enforce business rules at compile time.
@@ -37,7 +37,7 @@ public sealed interface Shape
 ```
 
 
-#### Records
+### Records
 ***Why it matters:*** Dramatically reduces boilerplate for data classes.
 Perfect for DTOs, value objects, API responses, and configuration models.
 Automatically generates constructor, getters, equals, hashCode, and toString.
@@ -46,7 +46,7 @@ public record User(String name, int age) {}
 ```
 
 
-#### Pattern Matching
+### Pattern Matching
 ***Why it matters:*** Reduces boilerplate and makes conditional logic cleaner.
 Combines type checking and casting in one step.
 Makes code safer and more readable.
@@ -65,7 +65,7 @@ if (obj instanceof String s) {
 ```
 
 
-#### Hidden Classes
+### Hidden Classes
 ***1. What Problem Do Hidden Classes Solve?***
 Some Java frameworks generate classes at runtime, for example:
 - Spring (proxies)
@@ -118,7 +118,7 @@ A Hidden Class is:
 - Building proxies, mocks, or DSLs
 - Working on JVM tooling
 
-#### Garbage Collector
+### Garbage Collector
 
 Before Java 15:
 
