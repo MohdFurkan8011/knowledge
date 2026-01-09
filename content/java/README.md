@@ -9,7 +9,7 @@
 7. [Serialization](serialize/serialize.md)
 8. [Clone](clone/clone.md)
 9. [Collection](collection/README.md)
-10. [Java 8](java-eight.md)
+10. [Java Features](java_features/features.md)
 11. [Garbage Collector](garbage-collector.md)
 12. [Memory Model](memory-model.md)
 13. [Solid Principle of Java](solid/README.md)
