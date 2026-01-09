@@ -117,3 +117,25 @@ A Hidden Class is:
 - Generating bytecode at runtime
 - Building proxies, mocks, or DSLs
 - Working on JVM tooling
+
+#### Garbage Collector
+
+Before Java 15:
+
+- Some modern GCs existed
+- But they were experimental
+- Risky to use in production
+
+In Java 15:
+✅ These GCs became stable and production-ready
+✅ Safer to use in real applications
+✅ Better performance and predictability
+
+***Comparison with Traditional GCs***
+| GC Type | Pause Time | Heap Size Handling | Java 15 Status |
+|----------|----------|----------|
+| Serial GC  | High  | Small heaps  | Stable  |
+| Parallel GC  | Medium–High  | Medium heaps  | Stable  |
+| G1 GC (default)  | Low–Medium  | Large heaps  | Stable  |
+| ZGC  | Very Low  | Huge heaps  | Production  |
+| Shenandoah | Very Low  | Huge heaps  | Production  |
