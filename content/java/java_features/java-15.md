@@ -8,9 +8,15 @@
 - [Pattern Matching](#pattern-matching)
 - [Hidden Classes](#hidden-classes)
 - [Garbage Collector](#garbage-collector)
+    - [Z Garbage Collector](#z-garbage-collector)
+    - [Shenandoah GC](#shenandoah-gc)
 - [EdDSA](#EdDSA)
 - [Nashorn JavaScript Engine](#nashorn-javascript-engine)
-
+- [Foreign Memory Access API](#foreign-memory-access-api)
+- [RMI](#rmi)
+- [JDK Flight Recorder Event](#jdk-flight-recorder-event)
+- [Improved NullPointerException](#improved-nullpointerexception)
+- [Packaging Tool](#packaging-tool)
 
 ### Text Blocks
 ***Why it matters***: Greatly improves code readability and maintainability.
@@ -140,6 +146,14 @@ In Java 15:
 | ZGC | Very Low | Huge heaps | Production |
 | Shenandoah | Very Low | Huge heaps | Production |
 
+### Z Garbage Collector
+- A scalable, low-latency garbage collector
+- Can be enabled with -XX:+UseZGC
+
+### Shenandoah GC
+- A low-pause-time garbage collector
+- Can be enabled with -XX:+UseShenandoahGC
+
 
 #### EdDSA
 
@@ -250,3 +264,60 @@ Better alternatives exist
 - GraalVM JavaScript
 - Node.js
 - External JS engines
+
+### Foreign Memory Access API
+The Foreign Memory Access API in Java 15 is an incubator API (introduced by JEP 370) that allows Java programs to safely and efficiently access memory outside the Java heap.
+
+In simple terms:
+👉 It lets Java work with native / off-heap memory without using sun.misc.Unsafe.
+
+***Why was it introduced?***
+
+Before Java 15, accessing off-heap memory was:
+
+- Unsafe (Unsafe)
+- Error-prone (memory leaks, crashes)
+- Hard to reason about lifetime and bounds
+
+The Foreign Memory Access API provides:
+- **Safety** (bounds checking, lifetime management)
+- **Performance** (no GC overhead for large native buffers)
+- **Cleaner native interop** (better than ByteBuffer for many use cases)
+
+**Key Concepts**
+Memory Segment - Represents a block of memory (on-heap, off-heap, or native).
+```java
+MemorySegment segment = MemorySegment.allocateNative(100);
+``` 
+MemoryAddress - Represents an address inside a memory segment.
+```java
+MemoryAddress address = segment.address();
+```
+
+### RMI
+Deprecate RMI Activation
+- RMI activation is deprecated
+- Will be removed in a future release
+
+### JDK Flight Recorder Event
+JDK Flight Recorder is a powerful tool for monitoring and profiling Java applications. It's designed to have minimal performance impact, making it suitable for production environments.
+
+**Key features:**
+- Event-based: JFR captures events like method calls, garbage collection, and thread activity.
+- Low Overhead: Designed to be lightweight and efficient
+- Configurable: Can be enabled/disabled and events can be filtered.
+
+### Improved NullPointerException
+- NullPointerExceptions now provide more context
+- Shows the variable or expression that was null
+- Helps you pinpoint the issue faster
+
+```java
+String s = null;
+s.toString(); // NullPointerException: Cannot invoke "String.toString()" because "s" is null
+```
+
+### Packaging Tool
+- jpackage is a command-line tool for packing Java apps
+- Creates native installers for apps (e.g, .exe, .deb, .dmg)
+- Bundles dependencies and JRE with the app
