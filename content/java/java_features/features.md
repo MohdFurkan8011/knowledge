@@ -9,7 +9,7 @@
 6. [Java 13](java.md)
 7. [Java 14](java.md)
 8. [Java 15](java-15.md)
-9. [Java 16](java.md)
+9. [Java 16](java-16.md)
 10. [Java 17](java.md)
 11. [Java 18](java.md)
 12. [Java 19](java.md)
