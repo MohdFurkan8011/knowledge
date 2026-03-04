@@ -9,24 +9,24 @@
 - If not, cloudfront retceives it from an amazon s3 bucket or an http/webservers that you have identified as the sorce for the definitive version of your content from origin servers.
 - Cloudfront also keeps persistent connection with origin servers so file are fetched from the origin as quickly as possible.
 
-***We can acces Amazon CloudFront in the following ways***
+**We can acces Amazon CloudFront in the following ways**
 1. AWS management console
 2. AWS SDK
 3. Cloudfront API
 4. AWS command line interface
 
-***Cloudfront edge locations***
+**Cloudfront edge locations**
 - Edge locations are not tied to availability zones or regions
 - Amazon coludfront has 216 points of presence - 205 edge location and 11 regional edge caches in 84 cities across 42 countries.
 
-#### Cloudfront Regional Edge cache
+**Cloudfront Regional Edge cache**
 - Amazon cloud front has added several regional edge cache location globally at close proximity to your viewers.
 - They are located between your origin webserver and the global edge locations that serve content directly to your viewer
 - As objects become less popular, individual edge locations may remove these objects to make room for popular content.
 - Regional edge cache working as a alternative of origin to reduce the burden of origin.
 - Regional edge cache have a large cache width than any individual edge location, so object remains in the cache longer at the nearest regional edge caches.
 
-***Cloudfront regional edge cache working***
+**Cloudfront regional edge cache working**
 - When a viewer makes a request on your website or through your applications, DNS routes the request to the cloud front edge location that can best serve the user's request.
 - This location is typically the nearest cloudfront edge location in terms of latency.
 - In the edge location, cloudfront checks its cache for the requested files.
