@@ -1,11 +1,11 @@
 ### SNS
 Amazon Web Services Simple Notification Service (SNS) is a fully managed pub/sub (publish–subscribe) messaging service used to send notifications and messages between distributed systems, microservices, and end users.
 
-***It supports:***
+**It supports:**
 - Application-to-Application (A2A) messaging
 - Application-to-Person (A2P) messaging
 
-***Core concept***
+**Core concept**
 #### Topics
 A **topic** is a global logical access point where publishers send messages.
 **Publishers**
@@ -84,23 +84,20 @@ FIFO - First-in-first-out
 SNS FIFO provides:
 
 ✅ Strict ordering
-
 ✅ Exactly-once message delivery
-
 ✅ Deduplication support
 
 It solves the duplicate + ordering issues of Standard SNS.
 
-***Why FIFO Was Introduced?***
+**Why FIFO Was Introduced?**
 
 Standard SNS:
+- At-least-once delivery
+- Best-effort ordering
+- Possible duplicates
+- For financial systems, payments, trading, inventory — this is risky.
 
-At-least-once delivery
-Best-effort ordering
-Possible duplicates
-For financial systems, payments, trading, inventory — this is risky.
-
-***Guarantees Provided by SNS FIFO***
+**Guarantees Provided by SNS FIFO**
 1. ***Exactly-Once Delivery (With Conditions)***
 SNS FIFO ensures:
 - No duplicate message delivery (within deduplication window)
