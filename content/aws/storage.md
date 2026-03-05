@@ -2,10 +2,10 @@
 AWS offers a complete range of cloud storage service to support both application and archival compliance requirements. Select from object, file and block storage services as well as cloud data migration option to start designing the foundation of your cloud IT environment.
 
 **Types of storage**
-[Simple Storage Service](#simple-storage-service)
-[Elastic File System](#elastic-file-system)
-[Elastic Block Storage](#elastic-block-storage)
-[Snowball](#snowball)
+1. [Simple Storage Service](#simple-storage-service)
+2. [Elastic File System](#elastic-file-system)
+3. [Elastic Block Storage](#elastic-block-storage)
+4. [Snowball](#snowball)
 
 
 #### Simple Storage Service
