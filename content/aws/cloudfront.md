@@ -1,4 +1,4 @@
-### CloudFront
+## CloudFront
 
 - Cloud frontis a global service
 - Amazon cloudfront is a webservices that speeds up distribution of your static and dynamic web content, such as .html, .css, .js and image files to users.

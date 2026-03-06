@@ -1,4 +1,4 @@
-### Storage
+## Storage
 AWS offers a complete range of cloud storage service to support both application and archival compliance requirements. Select from object, file and block storage services as well as cloud data migration option to start designing the foundation of your cloud IT environment.
 
 **Types of storage**

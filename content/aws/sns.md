@@ -1,4 +1,4 @@
-### SNS
+## SNS
 Amazon Web Services Simple Notification Service (SNS) is a fully managed pub/sub (publish–subscribe) messaging service used to send notifications and messages between distributed systems, microservices, and end users.
 
 **It supports:**
