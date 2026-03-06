@@ -16,11 +16,11 @@ Typical architecture uses several AWS services together.
 
 Example serverless API:
 
-Client (Web / Mobile)
+Client (Web / Mobile)<br>
         ↓
-API Gateway
+API Gateway<br>
         ↓
-Lambda Function
+Lambda Function<br>
         ↓
 DynamoDB / RDS / S3
 
@@ -50,7 +50,7 @@ Common triggers:
 | Scheduled Task     | Cron job      |
 
 Example:
-| User uploads image → S3 → Lambda → Resize image
+> User uploads image → S3 → Lambda → Resize image
 
 Amazon Web Services offers both Amazon EC2 and AWS Lambda, but they solve different problems.
 
@@ -85,8 +85,8 @@ When container already exists.
 6. Lambda Scaling
 Lambda automatically scales.
 
-Example:
--> 1 request → 1 Lambda instance
+Example:<br>
+-> 1 request → 1 Lambda instance<br>
 -> 1000 requests → 1000 Lambda instances
 
 ***Each request gets its own isolated container.***
@@ -101,9 +101,9 @@ Pricing is based on:
 2. Execution time
 3. Memory allocated
 
-Example:
-Requests: 1M
-Execution time: 200 ms
+Example:<br>
+Requests: 1M<br>
+Execution time: 200 ms<br>
 Memory: 512 MB
 
 You pay only when the function runs.
@@ -155,9 +155,9 @@ You can deploy using:
 12. ***When NOT to Use Lambda***
 
 Avoid Lambda for:<br>
-❌ Long-running tasks (>15 minutes)
-❌ Heavy CPU workloads
-❌ Large monolithic apps
+❌ Long-running tasks (>15 minutes)<br>
+❌ Heavy CPU workloads<br>
+❌ Large monolithic apps<br>
 ❌ Applications needing persistent connections
 
 In those cases use:
