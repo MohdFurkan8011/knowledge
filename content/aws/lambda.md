@@ -154,8 +154,8 @@ You can deploy using:
 
 12. ***When NOT to Use Lambda***
 
-Avoid Lambda for:
-❌ Long-running tasks<br> (>15 minutes)
+Avoid Lambda for:<br>
+❌ Long-running tasks (>15 minutes)
 ❌ Heavy CPU workloads
 ❌ Large monolithic apps
 ❌ Applications needing persistent connections
