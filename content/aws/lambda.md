@@ -13,7 +13,9 @@ Event → Lambda Function → Result
 2. **Lambda Architecture**
 
 Typical architecture uses several AWS services together.
+
 Example serverless API:
+
 Client (Web / Mobile)
         ↓
 API Gateway
@@ -70,6 +72,7 @@ When container already exists.
 
 
 5. ***Lambda Limits***
+
 | Limit                 | Value            |
 |-----------------------|------------------|
 | Max runtime           | 15 minutes       |
@@ -152,7 +155,7 @@ You can deploy using:
 12. ***When NOT to Use Lambda***
 
 Avoid Lambda for:
-❌ Long-running tasks (>15 minutes)
+❌ Long-running tasks<br> (>15 minutes)
 ❌ Heavy CPU workloads
 ❌ Large monolithic apps
 ❌ Applications needing persistent connections
