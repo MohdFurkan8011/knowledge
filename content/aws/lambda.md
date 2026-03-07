@@ -86,8 +86,7 @@ When container already exists.
 Lambda automatically scales.
 
 Example:<br>
--> 1 request → 1 Lambda instance<br>
--> 1000 requests → 1000 Lambda instances
+> 1 request → 1 Lambda instance<br> 1000 requests → 1000 Lambda instances
 
 ***Each request gets its own isolated container.***
 No load balancer needed.
@@ -208,7 +207,82 @@ With Amazon EC2 you get a virtual machine.
 ***Cost Difference***
 
 ***EC2:*** Pay while server is running (even if idle).
-***Lambda:*** Pay only when code runs.
+***Lambda:*** Pay only when code runs.<br>
 ***Example:***
-1M requests/month → Lambda often cheaper.
-Heavy backend running 24/7 → EC2 cheaper.
+- 1M requests/month → Lambda often cheaper.
+- Heavy backend running 24/7 → EC2 cheaper.
+
+
+```java
+
+<dependencies>
+
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-function-context</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-function-adapter-aws</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+    </dependency>
+
+</dependencies>
+
+```
+
+```java
+@Entity
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String email;
+
+}
+```
+
+```java
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+```
+
+```java
+@Component
+public class UserFunction {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Bean
+    public Function<User, User> saveUser() {
+        return user -> userRepository.save(user);
+    }
+}
+```
+
+```java
+public class LambdaHandler extends SpringBootRequestHandler<User, User> {
+}
+```
+
+```java
+spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.jpa.hibernate.ddl-auto=update
+```
