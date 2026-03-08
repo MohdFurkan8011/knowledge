@@ -6,7 +6,7 @@ Amazon Web Services Simple Notification Service (SNS) is a fully managed pub/sub
 - Application-to-Person (A2P) messaging
 
 **Core concept**
-#### Topics
+### Topics
 A **topic** is a global logical access point where publishers send messages.
 **Publishers**
 Services or applications that send messages to SNS topics.
@@ -16,7 +16,7 @@ Example
 - Lamda
 - Custom applications
 
-#### Subscribers
+### Subscribers
 Endpoints that receive messages
 Supported protocols:
 - HTTP / HTTPS

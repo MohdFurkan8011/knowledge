@@ -1,38 +1,148 @@
 ## CloudFront
+- [What is Amazon CloudFront](#what-is-amazon-cloudfront)
+- [Why CloudFront is Needed](#why-cloudfront-is-needed)
+- [Key Components of CloudFront](#key-components-of-cloudfront)
+- [How CloudFront Works](#how-cloudfront-works)
+- [Types of Content](#types-of-content)
+- [Caching](#caching)
+- [Time To Live](#time-to-live)
+- [Cache Invalidation](#cache-invalidation)
+- [CloudFront Security](#cloudfront-security)
+- [CloudFront + S3](#cloudfront--s3)
+- [CloudFront Edge Functions](#cloudfront-edge-functions)
+- [Origin Access Control](#origin-access-control)
 
-- Cloud frontis a global service
-- Amazon cloudfront is a webservices that speeds up distribution of your static and dynamic web content, such as .html, .css, .js and image files to users.
-- Cloudfront delivers your content through a worldwide network of data centers called Edge locations.
-- When a user request content that you are serving with coludfront, the user is routed(via DNS resolution) to the edge location that provides the lowest latency so that content is delivered with the best performance.
-- If the content s already in the edge location with the lowest latency, cloudfront delivers it immediately.
-- This dramatically reduces the number of network that your user's request must pass through which improves performance.
-- If not, cloudfront retceives it from an amazon s3 bucket or an http/webservers that you have identified as the sorce for the definitive version of your content from origin servers.
-- Cloudfront also keeps persistent connection with origin servers so file are fetched from the origin as quickly as possible.
+### What is Amazon CloudFront
 
-**We can acces Amazon CloudFront in the following ways**
-1. AWS management console
-2. AWS SDK
-3. Cloudfront API
-4. AWS command line interface
+Amazon CloudFront is a Content Delivery Network (CDN) service that delivers content to users with low latency and high transfer speeds.
 
-**Cloudfront edge locations**
-- Edge locations are not tied to availability zones or regions
-- Amazon coludfront has 216 points of presence - 205 edge location and 11 regional edge caches in 84 cities across 42 countries.
+**Simple Definition**
+> CloudFront caches content in global edge locations and delivers it to users from the nearest location.
 
-**Cloudfront Regional Edge cache**
-- Amazon cloud front has added several regional edge cache location globally at close proximity to your viewers.
-- They are located between your origin webserver and the global edge locations that serve content directly to your viewer
-- As objects become less popular, individual edge locations may remove these objects to make room for popular content.
-- Regional edge cache working as a alternative of origin to reduce the burden of origin.
-- Regional edge cache have a large cache width than any individual edge location, so object remains in the cache longer at the nearest regional edge caches.
+### Why CloudFront is Needed
+Without CDN:
+User (India) -> Server (USA)
+Problems:
+- High latency
+- Slow loading
+- High server load
 
-**Cloudfront regional edge cache working**
-- When a viewer makes a request on your website or through your applications, DNS routes the request to the cloud front edge location that can best serve the user's request.
-- This location is typically the nearest cloudfront edge location in terms of latency.
-- In the edge location, cloudfront checks its cache for the requested files.
-- If the files are in the cache, cloudfront returns them to the user.
-- If the files are not in the cache, the edge servers go to the nearest regional edge cache to fetch the object.
-- Regional edge caches have feature panity with edge locations for eg. a cache invalidation request removes an object from both edge caches and regional edge cache before it expires.
-- The next time a viewer request the object, cloudfront returns to the origin to fetch the latest version of the object.
-- Proxy method PUT/POST/PATCH/OPTIONS/DELEE go directly to the origin from the edge locations and do not proxy through the regional edge caches.
-- Dynamic content as determined at request time, does not flow through origin edge cache, but goes directly to the origin.
+With Amazon CloudFront:
+User -> Nearest Edge Location -> Origin Server
+Result:
+- Faster content delivery
+- Lower latency
+- Reduced server load
+
+### Key Components of CloudFront
+
+**A. Edge Locations**
+These are global data centers where content is cached.
+Example:
+- Delhi
+- Mumbai
+- London
+- Tokyo
+- New York
+
+User gets data from the closest edge location.
+
+**B. Origin**
+Origin is the source of content.
+Examples:
+- Amazon Simple Storage Service
+- Amazon EC2
+- Elastic Load Balancing
+
+**C. Distribution**
+A distribution is the CloudFront configuration.
+Two types:
+- Web distribution → websites
+- RTMP distribution → streaming (legacy)
+
+***Today most use web distribution.***
+
+### How CloudFront Works
+
+***Step-by-step flow:***
+- 1 User requests file
+- 2 Request goes to nearest edge location
+- 3 Edge checks cache
+
+***If cached:***
+- Edge → User (fast)
+
+***If not cached:***
+- Edge → Origin server
+- Origin → Edge
+- Edge caches response
+- Edge → User
+
+This is called cache miss.
+Next request becomes cache hit.
+
+### Types of Content
+
+CloudFront can deliver:
+- Static Content - (Images, CSS, Javascript, HTML, Videos)
+- Dynamic Content - (API responses, Database queries, Login requests)
+
+### Caching
+
+CloudFront stores content in cache.
+> Image.jpg cached for 24 hours
+Benefits:
+- Faster performance
+- Less origin load
+- Lower cost
+
+### Time To Live
+
+TTL determines how long content stays cached.
+Types:
+- Minimum TTL
+- Default TTL
+- Maximum TTL
+
+### Cache Invalidation
+
+Sometimes you update files.
+But edge still has old version.
+Solution:
+> Cache Invalidation
+
+### CloudFront Security
+
+CloudFront adds strong security.
+
+**A. HTTPS**
+Uses SSL/TLS encryption.
+Certificates managed via:
+
+**B. AWS WAF**
+Protects against attacks.
+Example:
+- SQL injection
+- DDoS
+- Bots
+
+**C. Signed URLs**
+Used for private content.
+> User receives temporary access link.
+
+### CloudFront + S3
+
+User -> CloudFront -> S3 Bucket
+
+### CloudFront Edge Functions
+
+CloudFront supports serverless code.
+Two options:
+- CloudFront Functions - Lightweight functions for: (Header modification, Authentication, URL rewriting)
+- Lambda@Edge - Runs Lambda at edge locations. (Authorization, Content customization, Security checks)
+
+### Origin Access Control
+
+Used to secure S3 bucket.
+Without it: -> Users can access S3 directly
+With OAC: -> Only CloudFront can access S3
