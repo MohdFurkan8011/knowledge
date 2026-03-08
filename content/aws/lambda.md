@@ -1,6 +1,21 @@
 ## Lambda
 
-1. **What AWS Lambda Actually Is**
+- [What AWS Lambda Actually Is](#what-aws-lambda-actually-is)
+- [Lambda Architecture](#lambda-architecture)
+- [Lambda Execution Model](#lambda-execution-model)
+- [Lambda Lifecycle](#lambda-lifecycle)
+- [Lambda Limits](#lambda-limits)
+- [Lambda Scaling](#lambda-scaling)
+- [Lambda Pricing](#lambda-pricing)
+- [Lambda Function Structure](#lambda-function-structure)
+- [Supported Languages](#supported-languages)
+- [Lambda Deployment Methods](#lambda-deployment-methods)
+- [Lambda Use Cases](#lambda-use-cases)
+- [When NOT to Use Lambda](#when-not-to-use-lambda)
+- [EC2 vs Lambda](#ec2-vs-lambda)
+- [Spring Cloud Function](#spring-cloud-function)
+
+### What AWS Lambda Actually Is
 
 AWS Lambda is a serverless compute service from Amazon Web Services that lets you run code without managing servers.
 
@@ -10,7 +25,7 @@ Instead of deploying an application to a server (like Amazon EC2), you upload fu
 Event → Lambda Function → Result
 
 
-2. **Lambda Architecture**
+### Lambda Architecture
 
 Typical architecture uses several AWS services together.
 
@@ -34,7 +49,7 @@ DynamoDB / RDS / S3
 - Amazon SQS → queue processing
 
 
-3. **Lambda Execution Model**
+### Lambda Execution Model
 
 Lambda is event-driven.
 A function runs when triggered by an event source.
@@ -55,7 +70,7 @@ Example:
 Amazon Web Services offers both Amazon EC2 and AWS Lambda, but they solve different problems.
 
 
-4. ***Lambda Lifecycle***
+### Lambda Lifecycle
 
 Execution lifecycle:
 - Request arrives
@@ -71,7 +86,7 @@ When Lambda runs for the first time.
 When container already exists.
 
 
-5. ***Lambda Limits***
+### Lambda Limits
 
 | Limit                 | Value            |
 |-----------------------|------------------|
@@ -82,7 +97,8 @@ When container already exists.
 | Ephemeral storage     | 512MB – 10GB     |
 
 
-6. Lambda Scaling
+### Lambda Scaling
+
 Lambda automatically scales.
 
 Example:<br>
@@ -92,7 +108,7 @@ Example:<br>
 No load balancer needed.
 
 
-7. ***Lambda Pricing***
+### Lambda Pricing
 
 Pricing is based on:
 
@@ -112,7 +128,8 @@ Free tier:
 400,000 GB-seconds compute
 
 
-8. ***Lambda Function Structure***
+### Lambda Function Structure
+
 Example Java Lambda handler:
 
 ```java
@@ -125,9 +142,9 @@ public class HelloHandler implements RequestHandler<Map<String,String>, String> 
 }
 ```
 
-9. ***Supported Languages***
-Lambda supports:
+### Supported Languages
 
+Lambda supports:
 - Java
 - Python
 - Node.js
@@ -136,7 +153,7 @@ Lambda supports:
 - Ruby
 
 
-10. ***Lambda Deployment Methods***
+### Lambda Deployment Methods
 
 You can deploy using:
 1. ZIP upload
@@ -144,14 +161,13 @@ You can deploy using:
 3. Infrastructure as Code
 
 
-11. ***Lambda Use Cases***
+### Lambda Use Cases
 - API Backends
 - File Processing
 - Scheduled Jobs
 - Stream Processing
 
-
-12. ***When NOT to Use Lambda***
+### When NOT to Use Lambda
 
 Avoid Lambda for:<br>
 ❌ Long-running tasks (>15 minutes)<br>
@@ -174,7 +190,7 @@ This allows running Spring apps as Lambda functions.
 
 Here’s a clear comparison:
 
-#### EC2 vs Lambda
+### EC2 vs Lambda
 
 | Feature | EC2 (Elastic Compute Cloud) | Lambda |
 |--------|------------------------------|--------|
@@ -212,6 +228,7 @@ With Amazon EC2 you get a virtual machine.
 - 1M requests/month → Lambda often cheaper.
 - Heavy backend running 24/7 → EC2 cheaper.
 
+### Spring Cloud Function
 
 ```java
 
