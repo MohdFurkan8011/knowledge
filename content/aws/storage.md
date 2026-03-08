@@ -8,7 +8,7 @@ AWS offers a complete range of cloud storage service to support both application
 4. [Snowball](#snowball)
 
 
-#### Simple Storage Service
+### Simple Storage Service
 Amazon S3 (Simple Storage Service)
 
 Amazon S3 is AWS’s fully managed object storage service designed for:
@@ -114,7 +114,7 @@ Used for:
 - ETL pipelines
 - Notifications
 
-#### Elastic File System
+### Elastic File System
 
 Amazon EFS is a fully managed, scalable file storage service for use with:
 - Amazon EC2
@@ -202,7 +202,7 @@ You pay for:
 - Requests
 - Data transfer (if cross-AZ)
 
-#### Elastic Block Storage
+### Elastic Block Storage
 Amazon EBS is a persistent block storage service for use with Amazon EC2. It provides storage volumes that you attach to EC2 instances, similar to how you would attach a hard drive to a physical server.
 
 **What EBS Actually Is (Core Concept)**
@@ -316,7 +316,7 @@ Burst - gp2 volumes can burst performance
 Cannot:
 - Reduce size
 
-#### Snowball
+### Snowball
 Snowball storage on AWS refers to a physical data transport solution called AWS Snowball, part of the AWS Snow Family offered by Amazon Web Services.
 It’s designed to move large amounts of data (terabytes to petabytes) into and out of AWS securely and faster than transferring over the internet.
 
