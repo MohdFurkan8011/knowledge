@@ -1,13 +1,21 @@
 ## SNS
+
+- [Core concept](#core-concept)
+- [Message types](#message-types)
+- [SNS Message Structure Types](#sns-message-structure-types)
+- [Message Attributes](#message-attributes)
+
 Amazon Web Services Simple Notification Service (SNS) is a fully managed pub/sub (publish–subscribe) messaging service used to send notifications and messages between distributed systems, microservices, and end users.
 
 **It supports:**
 - Application-to-Application (A2A) messaging
 - Application-to-Person (A2P) messaging
 
-**Core concept**
-### Topics
+### Core concept
+ 
+**Topics**
 A **topic** is a global logical access point where publishers send messages.
+
 **Publishers**
 Services or applications that send messages to SNS topics.
 Example
@@ -16,7 +24,7 @@ Example
 - Lamda
 - Custom applications
 
-### Subscribers
+**Subscribers**
 Endpoints that receive messages
 Supported protocols:
 - HTTP / HTTPS
@@ -26,30 +34,29 @@ Supported protocols:
 - SQS
 - Mobile push notifications
 
-#### Message types
+### Message types
 
-***Standard***
+- [Standard](#standard)
+- [FIFO](#fifo)
+
+#### Standard
 Standard SNS guarantees at-least-once delivery, not exactly-once.
 To make sure a message is never lost, SNS may retry delivery — and retries can cause duplicates.
 SNS is a distributed, multi-AZ, highly available system.
 
 In distributed systems, there are 3 delivery guarantees:
-
-At most once (may lose message)
-
-At least once (may duplicate)
-
-Exactly once (complex + slower)
+- At most once (may lose message)
+- At least once (may duplicate)
+- Exactly once (complex + slower)
 
 SNS Standard chooses:
-
-✅ High availability
-✅ High throughput
-✅ At-least-once delivery
+- High availability
+- High throughput
+- At-least-once delivery
 
 To achieve this, duplicates are possible.
 
-***Why exactly duplicates happen?***
+**Why exactly duplicates happen?**
 1. Network failure after delivery
 Scenario:
 - SNS sends message to SQS/HTTP endpoint
@@ -79,13 +86,12 @@ Processing the same message multiple times produces the same result.
 ***Why does SNS Standard deliver duplicates?***
 Because SNS guarantees at-least-once delivery to ensure no message loss. If acknowledgments are lost or subscriber responses timeout, SNS retries delivery, which can result in duplicate messages. Therefore, consumers must implement idempotency.
 
-***FIFO***
+### FIFO
 FIFO - First-in-first-out
 SNS FIFO provides:
-
-✅ Strict ordering
-✅ Exactly-once message delivery
-✅ Deduplication support
+- Strict ordering
+- Exactly-once message delivery
+- Deduplication support
 
 It solves the duplicate + ordering issues of Standard SNS.
 
@@ -180,7 +186,8 @@ If you enable Raw Message Delivery:
 Only this is sent:
 Your actual message
 
-4. Message Attributes (Very Important)
+### Message Attributes
+
 SNS supports message attributes.
 ```json
 {
