@@ -12,4 +12,8 @@
 - [SNS](sns.md)
 - [SQS](sqs.md)
 - [Storage](storage.md)
+  - [Simple Storage Service](storage.md#simple-storage-service)
+  - [Elastic File System](storage.md#elastic-file-system)
+  - [Elastic Block Storage](storage.md#elastic-block-storage)
+  - [Snowball](storage.md#snowball)
 - [CloudFront](cloudfront.md)
