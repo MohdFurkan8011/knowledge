@@ -5,4 +5,4 @@ AWS offers a complete range of cloud storage service to support both application
 1. [Simple Storage Service](sss.md)
 2. [Elastic File System](efs.md)
 3. [Elastic Block Storage](ebs.md)
-4. [Snowball](#snowball.md)
+4. [Snowball](snowball.md)
