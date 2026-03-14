@@ -40,35 +40,37 @@ Order Service
 Tightly coupled system.
 
 **With Amazon Simple Notification Service:**
+```
 Order Service
      |
      v
 SNS Topic
  |      |      |
 Email  SQS   Lambda
+```
 
 ### Core Components of SNS
 
-**Topic**
-- A topic is a communication channel.
-- Publishers send messages to a topic.
+- **1. Topic**
+   - A topic is a communication channel.
+   - Publishers send messages to a topic.
 
-**Publisher**
-Service that sends messages to the topic.
-Examples:
-- AWS Lambda
-- Amazon EC2
-- Applications
-- Microservices
+- **2. Publisher**
+   Service that sends messages to the topic.
+   Examples:
+   - AWS Lambda
+   - Amazon EC2
+   - Applications
+   - Microservices
 
-**Subscriber**
-Services that receive the message.
-Example subscribers:
-- Amazon SQS
-- AWS Lambda
-- Email
-- SMS
-- HTTP endpoints
+- **3. Subscriber**
+   Services that receive the message.
+   Example subscribers:
+   - Amazon SQS
+   - AWS Lambda
+   - Email
+   - SMS
+   - HTTP endpoints
 
 ### How SNS Works
 
@@ -81,10 +83,10 @@ Step-by-step:
 
 Important concept.
 SNS uses push delivery.
-> Publisher → SNS → Subscribers
+1. Publisher → SNS → Subscribers
 SNS automatically sends messages to subscribers.
-> SQS → Pull model
-> Consumers poll queue
+2. SQS → Pull model
+3. Consumers poll queue
 
 ### Supported Subscriber Types
 
@@ -113,8 +115,8 @@ SNS supports message filtering.
 ```
 
 Subscribers can filter messages.
-> Queue1 → receives only "order"
-> Queue2 → receives only "payment"
+- Queue1 → receives only "order"
+- Queue2 → receives only "payment"
 
 ### Message Size Limit
 
@@ -124,13 +126,13 @@ For larger payloads use: -> Amazon Simple Storage Service - Send S3 reference in
 ### SNS Security
 
 Security features include:
-**IAM Policies**
+- **1. IAM Policies**
 Access control using: - AWS Identity and Access Management
 
-**Encryption**
+- **2. Encryption**
 SNS supports encryption using: - AWS Key Management Service
 
-**Access Control**
+- **3. Access Control**
 You can restrict:
 - Which service can publish
 - Which service can subscribe
