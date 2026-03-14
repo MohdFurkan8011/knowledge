@@ -1,5 +1,8 @@
 ## Simple Storage Service
 
+- [What S3 Actually Is](#what-s3-actually-is)
+- [Core Concepts](#core-concepts)
+
 Amazon S3 (Simple Storage Service)
 
 Amazon S3 is AWS’s fully managed object storage service designed for:
@@ -8,7 +11,7 @@ Amazon S3 is AWS’s fully managed object storage service designed for:
 - Global accessibility
 - Low cost storage
 
-**What S3 Actually Is**
+### What S3 Actually Is
 S3 is:
 ✅ Object storage
 ✅ Regional service
@@ -19,11 +22,11 @@ S3 is:
 It stores:
 Objects inside Buckets
 
-**Core Concepts**
-✅ Bucket
-- Container for objects
-- Globally unique name
-- Defined in a Region
+### Core Concepts
+- **1. Bucket**
+    - Container for objects
+    - Globally unique name
+    - Defined in a Region
 - Data automatically replicated across multiple AZs
 
 ✅ Object
