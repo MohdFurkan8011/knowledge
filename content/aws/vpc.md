@@ -12,27 +12,27 @@
 
 ### Introduction
 
-    A Virtual Private Cloud (VPC) is a logically isolated private network inside a public cloud provider’s infrastructure where you can run your servers, databases, and applications with full control over networking.
+A Virtual Private Cloud (VPC) is a logically isolated private network inside a public cloud provider’s infrastructure where you can run your servers, databases, and applications with full control over networking.
 
-    It works like your own private data center inside the cloud, where you control IP addresses, routing, security, and connectivity.
+It works like your own private data center inside the cloud, where you control IP addresses, routing, security, and connectivity.
 
 ### Why VPC Exists
 
-    Without a VPC, cloud resources would be in a **shared public network**, which would be insecure.
+Without a VPC, cloud resources would be in a **shared public network**, which would be insecure.
 
-    A VPC allows you to:
-    - Isolate your resources
-    - Control network traffic
-    - Secure your applications
-    - Design custom network architecture
+A VPC allows you to:
+- Isolate your resources
+- Control network traffic
+- Secure your applications
+- Design custom network architecture
 
-    Example:
-    - Internet
-    - Cloud Provider
-    - Your VPC (private network)
-    - Web Servers
-    - Databases
-    - Microservices
+Example:
+- Internet
+- Cloud Provider
+- Your VPC (private network)
+  - Web Servers
+  - Databases
+  - Microservices
 
 ### Main Components of a VPC
 
@@ -209,79 +209,79 @@
 
 ### Example Real Architecture
 
-    ```
-                Internet
-                    |
-                Load Balancer
-                    |
-            ------------------
-            |                |
-        Public Subnet    Public Subnet
-        (Web Server)     (Web Server)
-            |
-            NAT Gateway
-            |
-        Private Subnet
-            (App Server)
-            |
-        Private Subnet
-            (Database)
-    ```
+```
+               Internet
+                   |
+             Load Balancer
+                   |
+           ------------------
+           |                |
+       Public Subnet    Public Subnet
+       (Web Server)     (Web Server)
+           |
+        NAT Gateway
+           |
+       Private Subnet
+        (App Server)
+           |
+       Private Subnet
+         (Database)
+```
 
 ### VPC vs Traditional Network
 
-    | Feature        | VPC          | Traditional Data Center |
-    |----------------|--------------|-------------------------|
-    | Hardware       | Virtual      | Physical                |
-    | Scalability    | Unlimited    | Limited                 |
-    | Setup time     | Minutes      | Weeks                   |
-    | Cost           | Pay as you go| High upfront            |
+| Feature        | VPC          | Traditional Data Center |
+|----------------|--------------|-------------------------|
+| Hardware       | Virtual      | Physical                |
+| Scalability    | Unlimited    | Limited                 |
+| Setup time     | Minutes      | Weeks                   |
+| Cost           | Pay as you go| High upfront            |
 
 ### Benefits of VPC
 
-    - Security
-    - Custom Networking
-    - High Availability
-    - Scalability
+- Security
+- Custom Networking
+- High Availability
+- Scalability
 
 ### VPC for a Web App
 
-    ```
-    VPC
-    |
-    |-- Public Subnet
-    |      |
-    |      Load Balancer
-    |
-    |-- Private Subnet
-    |      |
-    |      Spring Boot API
-    |
-    |-- Private Subnet
-            |
-            PostgreSQL DB
-    ```
+```
+VPC
+ |
+ |-- Public Subnet
+ |      |
+ |      Load Balancer
+ |
+ |-- Private Subnet
+ |      |
+ |      Spring Boot API
+ |
+ |-- Private Subnet
+        |
+        PostgreSQL DB
+```
 
 ### Advanced VPC Features
 
-    ***VPC Endpoints***
-    Private connection to AWS services without internet.
-    > EC2 → S3 (private network)
+***VPC Endpoints***
+Private connection to AWS services without internet.
+> EC2 → S3 (private network)
 
-    ***Flow Logs***
-    Monitor network traffic.
+***Flow Logs***
+Monitor network traffic.
 
-    ***PrivateLink***
-    Secure service sharing between VPCs.
+***PrivateLink***
+Secure service sharing between VPCs.
 
 ### Simple Analogy
 
-    Think of a ***VPC like an apartment building:***
+Think of a ***VPC like an apartment building:***
 
-    | Cloud Component   | Real World           |
-    |-------------------|----------------------|
-    | VPC               | Apartment building   |
-    | Subnet            | Floor                |
-    | Instance          | Apartment            |
-    | Security Group    | Door lock            |
-    | Internet Gateway  | Building entrance    |
+| Cloud Component   | Real World           |
+|-------------------|----------------------|
+| VPC               | Apartment building   |
+| Subnet            | Floor                |
+| Instance          | Apartment            |
+| Security Group    | Door lock            |
+| Internet Gateway  | Building entrance    |
