@@ -43,7 +43,7 @@ Exam tip: EB is not a container service by default, but it supports Docker too.
 - **Environment Tier:**
   - Web Server Tier → handles HTTP requests
   - Worker Tier → processes background jobs (using SQS queues)
-- ***Managed Resources:**
+- **Managed Resources:**
   - EC2 instances
   - Auto Scaling Group
   - Elastic Load Balancer

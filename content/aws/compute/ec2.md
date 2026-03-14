@@ -109,4 +109,3 @@ Amazon EC2 is a virtual server in the cloud. It provides resizable compute capac
 - Elastic IP → static public IP, useful for DNS
 
 **EC2 = Virtual server → choose AMI + Instance type → attach EBS → assign Security Group + Key Pair → connect via SSH/RDP → optionally auto-scale.**
-
