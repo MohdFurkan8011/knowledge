@@ -1,6 +1,6 @@
 # AWS
 
-- Compute
+- [Compute]
   - [EC2](compute/ec2.md)
   - [Lambda](compute/lambda.md)
   - [Elastic Container Service](compute/ecs.md)
