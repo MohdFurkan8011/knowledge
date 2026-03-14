@@ -28,7 +28,7 @@ It allows different parts of a system to communicate asynchronously.
 Simple Definition
 > SQS is a message queue where one service sends messages and another service processes them later.
 
-### 2. Why SQS is Needed
+### Why SQS is Needed
 
 Imagine a web application:
 
@@ -51,12 +51,12 @@ Now:
 
 ### Core Components of SQS
 
-**A. Producer**
-Service that sends message to queue
-Example:
-- Web app
-- Lambda
-- EC2
+- **Producer**
+    Service that sends message to queue
+    Example:
+    - Web app
+    - Lambda
+    - EC2
 
 **B. Queue**
 Temporary storage of messages.
