@@ -37,17 +37,17 @@ Example:
 ### Main Components of a VPC
 
 - **1. CIDR Block (IP Range)** Classless Inter-Domain Routing
-CIDR Block (IP Range) stands for Classless Inter-Domain Routing block.
-It is a method used to define a range of IP addresses in networks such as an AWS VPC or subnet.
+    CIDR Block (IP Range) stands for Classless Inter-Domain Routing block.
+    It is a method used to define a range of IP addresses in networks such as an AWS VPC or subnet.
 
-CIDR Format
-```
-IP_address/prefix_length
-10.0.0.0/16
-10.0.0.0 – 10.0.255.255
-```
+    CIDR Format
+    ```
+    IP_address/prefix_length
+    10.0.0.0/16
+    10.0.0.0 – 10.0.255.255
+    ```
 
-This means your VPC has 65,536 private IP addresses.
+    This means your VPC has 65,536 private IP addresses.
 
 - **2. Subnets**
 A subnet divides the VPC into smaller networks.
