@@ -52,21 +52,21 @@ Now:
 
 ### Core Components of SQS
 
-- **Producer**
+- **1. Producer**
     Service that sends message to queue
     Example:
     - Web app
     - Lambda
     - EC2
 
-- **Queue**
+- **2. Queue**
     Temporary storage of messages.
     Example:
     - Message 1
     - Message 2
     - Message 3
 
-- **Consumer**
+- **3. Consumer**
     Service that reads messages and processes them
     Example:
     - Worker server
@@ -84,19 +84,19 @@ Step by step process:
 
 ### Key Concepts
 
-- **Message Retention**
+- **1. Message Retention**
     - How long SQS stores a message.
     - Range: 1 minute → 14 days
     - Default: 4 days
     - If message not processed → it stays until retention expires.
 
-- **Visibility Timeout**
+- **2. Visibility Timeout**
     When a consumer reads a message:
     The message becomes ***invisible to other consumers temporarily***.
 
     **This prevents duplicate processing.**
 
-- **Long Polling**
+- **3. Long Polling**
     Consumer waits for messages instead of repeatedly asking.
     Without Long Polling:
     > Consumer → SQS
@@ -118,7 +118,7 @@ Step by step process:
 
 There are 2 types.
 
-- **Standard Queue**
+- **1. Standard Queue**
     Default queue.
 
     Features:
@@ -132,7 +132,7 @@ There are 2 types.
     - Image processing
     - Data pipelines
 
-- **FIFO Queue (First In First Out)**
+- **2. FIFO Queue (First In First Out)**
     Features:
     - Strict message ordering
     - Exactly-once processing
