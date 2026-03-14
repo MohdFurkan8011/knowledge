@@ -33,6 +33,7 @@ Simple Definition
 Imagine a web application:
 
 User uploads image → server processes image → stores result.
+
 Without SQS:
 > User → Web Server → Image Processing → Database
 
@@ -58,19 +59,19 @@ Now:
     - Lambda
     - EC2
 
-**B. Queue**
-Temporary storage of messages.
-Example:
-- Message 1
-- Message 2
-- Message 3
+- **Queue**
+    Temporary storage of messages.
+    Example:
+    - Message 1
+    - Message 2
+    - Message 3
 
-**C. Consumer**
-Service that reads messages and processes them
-Example:
-- Worker server
-- Lambda
-- Microservice
+- **Consumer**
+    Service that reads messages and processes them
+    Example:
+    - Worker server
+    - Lambda
+    - Microservice
 
 ### Message Lifecycle
 
@@ -83,67 +84,67 @@ Step by step process:
 
 ### Key Concepts
 
-**A. Message Retention**
-- How long SQS stores a message.
-- Range: 1 minute → 14 days
-- Default: 4 days
-- If message not processed → it stays until retention expires.
+- **Message Retention**
+    - How long SQS stores a message.
+    - Range: 1 minute → 14 days
+    - Default: 4 days
+    - If message not processed → it stays until retention expires.
 
-**B. Visibility Timeout**
-When a consumer reads a message:
-The message becomes ***invisible to other consumers temporarily***.
+- **Visibility Timeout**
+    When a consumer reads a message:
+    The message becomes ***invisible to other consumers temporarily***.
 
-**This prevents duplicate processing.**
+    **This prevents duplicate processing.**
 
-**C. Long Polling**
-Consumer waits for messages instead of repeatedly asking.
-Without Long Polling:
-> Consumer → SQS
-> No message
-> Consumer → SQS
-> No message
-**Waste of API calls.**
+- **Long Polling**
+    Consumer waits for messages instead of repeatedly asking.
+    Without Long Polling:
+    > Consumer → SQS
+    > No message
+    > Consumer → SQS
+    > No message
+    **Waste of API calls.**
 
-With Long Polling:
-> Consumer waits up to 20 seconds
-> If message arrives → returned immediately
+    With Long Polling:
+    > Consumer waits up to 20 seconds
+    > If message arrives → returned immediately
 
-Benefits:
-- Lower cost
-- Faster processing
-- Less empty responses
+    Benefits:
+    - Lower cost
+    - Faster processing
+    - Less empty responses
 
 ### Types of SQS Queues
 
 There are 2 types.
 
-**A. Standard Queue**
-Default queue.
+- **Standard Queue**
+    Default queue.
 
-Features:
-> Unlimited throughput
-> Best effort ordering
-> At least once delivery - Message may be delivered **more than once**.
-> High performance systems
+    Features:
+    > Unlimited throughput
+    > Best effort ordering
+    > At least once delivery - Message may be delivered **more than once**.
+    > High performance systems
 
-Example:
-- Logs
-- Image processing
-- Data pipelines
+    Example:
+    - Logs
+    - Image processing
+    - Data pipelines
 
-**B. FIFO Queue (First In First Out)**
-Features:
-- Strict message ordering
-- Exactly-once processing
+- **FIFO Queue (First In First Out)**
+    Features:
+    - Strict message ordering
+    - Exactly-once processing
 
-Limitations:
-- Lower throughput
-- Requires Message Group ID
+    Limitations:
+    - Lower throughput
+    - Requires Message Group ID
 
-Use cases:
-- Banking transactions
-- Order processing
-- Payment systems
+    Use cases:
+    - Banking transactions
+    - Order processing
+    - Payment systems
 
 ### Dead Letter Queue
 
@@ -198,12 +199,12 @@ Example architecture:
 ### Real World Architecture Example
 
 E-commerce order system:
-> User places order
-> Order Service
-> SQS Queue
-> Inventory Service
-> Payment Service
-> Shipping Service
+- User places order
+- Order Service
+- SQS Queue
+- Inventory Service
+- Payment Service
+- Shipping Service
 
 Benefits:
 - Loose coupling
@@ -269,14 +270,14 @@ FIFO also uses:
 
 This controls parallel processing.
 Example queue:
-> Group A → Order1
-> Group A → Order2
-> Group B → Order3
-> Group B → Order4
+- Group A → Order1
+- Group A → Order2
+- Group B → Order3
+- Group B → Order4
 
 Processing:
-> Worker1 → Group A
-> Worker2 → Group B
+- Worker1 → Group A
+- Worker2 → Group B
 
 Ordering guaranteed inside a group.
 But different groups run **in parallel**.
