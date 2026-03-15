@@ -289,10 +289,32 @@ Think of a ***VPC like an apartment building:***
 
 ### Practice
 
-- **Internet Gateway** Give the ability of accessing internet to VPC, not for instance yet, we ned to do some extra configuration for the same.
-- Every EC2 instace has a private IP, we need to check that IP address not allowed to to communicate with outside world.
-- After attaching the **internet gateway with VPC**, we need to modify the route table.
-- Edit route, add 0.0.0.0/0 - select target as internet gateway
-- After editing the route table, we can connect the instance, and can update the EC2 instance as well.
-- As we attach a route table with VPC, all subnets are assocated with this route table.
-- 
+- **Create OWN VPC**
+  - Create a VPC, create subnets for this, and install a ec2 instace using this VPC and subnet from Networking option while creating the instace.
+  - Your instace can not get connected and can not access the internet.
+  - **Internet Gateway** Give the ability of accessing internet to VPC, create a Internet Gateway,
+  - After attaching the **internet gateway with VPC**, we need to modify the route table.
+  - Edit route, add 0.0.0.0/0 - select target as internet gateway
+  - After editing the route table, we can connect the instance, and can update the EC2 instance as well.
+  - As we attach a route table with VPC, all subnets are assocated with this route table.
+
+- **How to access private Instace**
+  - With the help of **Jump Server or Bastion Host** we can talk with private EC2
+  - In this, a public EC2 talk to private EC2, with the help of SSH key
+
+- **How to access internet into this private instance**
+  - **NAT(Network Address Translation)**
+    - with the help of **NAT(Network Address Translation)** A private EC2 can access internet.
+    - We launch a EC2 instace in public VPC with **NAT - AMI(Amazon Machine Image)**
+    - This NAT instace should have a Elastic IP
+    - After this, we need to add an entry into route table of private VPN subnet route
+    - 0.0.0.0/0 and select instace from target.
+    - Then go to NAT instace and Setting > Networking > Change source/designation check - check stop
+    - **NAT Instance is recommended by Amazon** - Limited data bandwith, Single point of fail, scalbility issue, out of memory
+  - **NAT Gateway**
+    - Create a NAT gateway and assign a elastic IP address
+    - Go to route table, 0.0.0.0/0 and select NAT gateway from target
+    - It is fully managed by AWS, so there is no issue of failure
+
+- **Network Access Control List**
+  - 
