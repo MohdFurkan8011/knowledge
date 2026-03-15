@@ -9,6 +9,7 @@
 - [VPC for a Web App](#vpc-for-a-web-app)
 - [Advanced VPC Features](#advanced-vpc-features)
 - [Simple Analogy](#simple-analogy)
+- [Practice](#practice)
 
 ### Introduction
 
@@ -285,3 +286,13 @@ Think of a ***VPC like an apartment building:***
 | Instance          | Apartment            |
 | Security Group    | Door lock            |
 | Internet Gateway  | Building entrance    |
+
+### Practice
+
+- **Internet Gateway** Give the ability of accessing internet to VPC, not for instance yet, we ned to do some extra configuration for the same.
+- Every EC2 instace has a private IP, we need to check that IP address not allowed to to communicate with outside world.
+- After attaching the **internet gateway with VPC**, we need to modify the route table.
+- Edit route, add 0.0.0.0/0 - select target as internet gateway
+- After editing the route table, we can connect the instance, and can update the EC2 instance as well.
+- As we attach a route table with VPC, all subnets are assocated with this route table.
+- 
