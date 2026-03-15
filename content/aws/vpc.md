@@ -317,4 +317,34 @@ Think of a ***VPC like an apartment building:***
     - It is fully managed by AWS, so there is no issue of failure
 
 - **Network Access Control List**
-  - 
+  - It works at subnet level
+  - It is first firewall at after VPC then Security group comes
+  - Go to NACL, edit inbound rule, the sequence of Rule number is very important, small number first will get verify
+
+- **VPC Peering**
+  - Go to VPC > Peering connection
+  - Select VPC ID from same account or different account
+  - Both VPC's private IP address should be different
+  - Request approval proces
+  - Then we need to add into route table, give CIDR of the VP, and select peering from target.
+  - We need to do above action in both table
+  - **Try to understand one possible situation, where one VPC and second VPC have same IP address and have a peering connection with VPC third, then if VPC sends any ping, where the request will go** (Longest prefix match).
+
+- **Transit Gateway And Transit Attachments**
+  - Problem - Think, if you have 40 VPC and want to peer all of them, then connection will be (n*n-1)/2 
+  - **Transit Gateway** is the solution from AWS
+  - **ARN** read about this
+  - As you attach VPC with transit attachments, a **A route table** is created by default
+  - Any traffic goes to VPC, it will go via AWS private network
+  - AWS itself manage transit, so there is no worry about scale.
+  - We need to modify the VPC route table as well
+
+- **VPC Flow**
+  - Show the details of VPC, packate etc.
+  - Create flow logs for any VPC and it has the configuratin of storage(s3) and logs type
+  - Designation - s3, cloud watch
+  - Format of the logs
+  - partition setting
+  - VPC or subnet we can set for VPC flow
+
+- 
