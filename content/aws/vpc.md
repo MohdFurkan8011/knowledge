@@ -347,4 +347,6 @@ Think of a ***VPC like an apartment building:***
   - partition setting
   - VPC or subnet we can set for VPC flow
 
-- 
+- **VPC Endpoint**
+  - Via VPC Endpoint, AWS services talk each other within private network
+  - We create a VPC endpoint and select AWS services, and pay attention type (Gateway, Interface)
