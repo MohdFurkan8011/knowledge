@@ -36,31 +36,31 @@ Result:
 
 ### Key Components of CloudFront
 
-**A. Edge Locations**
-These are global data centers where content is cached.
-Example:
-- Delhi
-- Mumbai
-- London
-- Tokyo
-- New York
+- **A. Edge Locations**
+    These are global data centers where content is cached.
+    Example:
+    - Delhi
+    - Mumbai
+    - London
+    - Tokyo
+    - New York
 
-User gets data from the closest edge location.
+    User gets data from the closest edge location.
 
-**B. Origin**
-Origin is the source of content.
-Examples:
-- Amazon Simple Storage Service
-- Amazon EC2
-- Elastic Load Balancing
+- **B. Origin**
+    Origin is the source of content.
+    Examples:
+    - Amazon Simple Storage Service
+    - Amazon EC2
+    - Elastic Load Balancing
 
-**C. Distribution**
-A distribution is the CloudFront configuration.
-Two types:
-- Web distribution → websites
-- RTMP distribution → streaming (legacy)
+- **C. Distribution**
+    A distribution is the CloudFront configuration.
+    Two types:
+    - Web distribution → websites
+    - RTMP distribution → streaming (legacy)
 
-***Today most use web distribution.***
+    ***Today most use web distribution.***
 
 ### How CloudFront Works
 
@@ -115,20 +115,20 @@ Solution:
 
 CloudFront adds strong security.
 
-**A. HTTPS**
-Uses SSL/TLS encryption.
-Certificates managed via:
+- **A. HTTPS**
+    Uses SSL/TLS encryption.
+    Certificates managed via:
 
-**B. AWS WAF**
-Protects against attacks.
-Example:
-- SQL injection
-- DDoS
-- Bots
+- **B. AWS WAF**
+    Protects against attacks.
+    Example:
+    - SQL injection
+    - DDoS
+    - Bots
 
-**C. Signed URLs**
-Used for private content.
-> User receives temporary access link.
+- **C. Signed URLs**
+    Used for private content.
+    > User receives temporary access link.
 
 ### CloudFront + S3
 

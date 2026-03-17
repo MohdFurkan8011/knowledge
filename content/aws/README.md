@@ -1,6 +1,6 @@
 # AWS
 
-- Compute
+- [Compute]
   - [EC2](compute/ec2.md)
   - [Lambda](compute/lambda.md)
   - [Elastic Container Service](compute/ecs.md)
@@ -9,12 +9,13 @@
   - [AWS Elastic Beanstalk](compute/beanstalk.md)
   - [AWS Batch](compute/batch.md)
 - [Database](database.md)
-- [SNS](sns.md)
-- [SQS](sqs.md)
 - [Storage](storage/README.md)
   - [Simple Storage Service](storage/sss.md)
   - [Elastic File System](storage/efs.md)
   - [Elastic Block Storage](storage/ebs.md)
   - [Snowball](storage/snowball.md)
+- [SNS](sns.md)
+- [SQS](sqs.md)
 - [CloudFront](cloudfront.md)
+- [VPC](vpc.md)
 - [Autoscalling](autoscalling.md)
