@@ -17,3 +17,4 @@
   - [Elastic Block Storage](storage/ebs.md)
   - [Snowball](storage/snowball.md)
 - [CloudFront](cloudfront.md)
+- [Autoscalling](autoscalling.md)
