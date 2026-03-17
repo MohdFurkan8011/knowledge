@@ -93,6 +93,11 @@ Auto Scaling uses three main components:
     - Memory
     - Network traffic
 
+    **Types:**
+      - Target - CPU utlization we set 70%, then it keeps traffic near 70%
+      - Simple - It will lanuched numbers of instaces as you defined
+      - Step scalling - we can add step, like this 50%-60% one instace, 60%-70% launch two instaces
+
     Example:
     - CPU > 70% → add instance
     - CPU < 30% → remove instance
