@@ -19,3 +19,4 @@
 - [SQS](sqs.md)
 - [CloudFront](cloudfront.md)
 - [VPC](vpc.md)
+- [Autoscalling](autoscalling.md)

@@ -1,24 +1,10 @@
 # Jenkins
 
-
-
 - [Jenkins fundamentals](#jenkins-fundamentals)
 - [Jenkins pipeline](#jenkins-pipeline)
 - [Jenkins git integration](#jenkins-git-integration)
 - [Jenkins master slave configuration](#jenkins-master-slave-configuration)
 - [Docker Jenkins pipeline](#docker-jenkins-pipeline)
-- [Maven Jenkins integration](#maven-jenkins-integration)
-- [Selenium Jenkins integration](#selenium-jenkins-integration)
-- [Jenkins groovy](#jenkins-groovy)
-- [Webhooks in Jenkins](#webhooks-in-jenkins)
-- [Email notification](#email-notification)
-- [SonarQube Jenkins](#sonarqube-jenkins)
-- [Jenkins X](#jenkins-x)
-- [Misc](#misc).
-
-
-
-
 
 ### Jenkins fundamentals
 
@@ -56,7 +42,7 @@ In other words, a Jenkins Pipeline is a collection of jobs or events that brings
 
 In a Jenkins pipeline, every job has some sort of dependency on at least one or more jobs or events. 
 
-![](D:\MohdFurkan\knowledge\content\images\pipeline.png)
+![](..\images\pipeline.png)
 
 The above diagram represents a continuous delivery pipeline in Jenkins. It contains a collection of states such as build, deploy, test and release. These jobs or events are interlinked with each other. Every state has its jobs, which work in a sequence called a continuous delivery pipeline.
 
@@ -203,4 +189,3 @@ pipeline {
     }
 }
 ```
-
