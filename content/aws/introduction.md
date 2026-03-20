@@ -6,6 +6,9 @@
 - [Edge Location](#edge-location)
 - [Local Zone](#local-zone)
 - [Region](#region)
+- [Security Group](#security-group)
+- [User Data](#user-data)
+
 
 ### Deployment Model of Clouds
 
@@ -66,6 +69,7 @@ Cloud ***deployment models*** describe where the cloud infrastructure is hosted 
     Example:
      - Government agencies
      - Healthcare organizations
+
 
 ### Cloud Computing Services
 
@@ -196,6 +200,7 @@ When a user in Delhi accesses a website:
 - CDN for images, videos, websites
 - DNS routing
 
+
 ### Local Zone
 
 Definition:
@@ -214,6 +219,7 @@ A **Local Zone** is an AWS infrastructure extension that places ***compute and s
 Example
 Applications hosted in **Asia Pacific (Mumbai) Region** may use a Delhi Local Zone to serve users faster.
 
+
 ### Region
 
 A Region is a geographical area containing multiple Availability Zones.
@@ -226,3 +232,23 @@ A Region is a geographical area containing multiple Availability Zones.
 - Data residency
 - Compliance
 - Disaster recovery
+
+
+### Security Group
+
+In Amazon Web Services (AWS), a Security Group acts like a virtual firewall that controls incoming (inbound) and outgoing (outbound) network traffic for resources such as Amazon EC2 instances.
+
+***What a Security Group Does***
+A Security Group defines rules that determine:
+
+- Who can access your resource
+- Which ports/protocols are allowed
+- Where the traffic can come from or go to
+
+Think of it as a firewall attached directly to your AWS resource.
+
+- **1. Inbound Rules**
+    These rules control who can access your instance.
+
+
+### User Data
