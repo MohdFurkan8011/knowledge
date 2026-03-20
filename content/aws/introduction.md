@@ -8,6 +8,7 @@
 - [Region](#region)
 - [Security Group](#security-group)
 - [User Data](#user-data)
+- [Instace types]
 
 
 ### Deployment Model of Clouds
@@ -232,23 +233,3 @@ A Region is a geographical area containing multiple Availability Zones.
 - Data residency
 - Compliance
 - Disaster recovery
-
-
-### Security Group
-
-In Amazon Web Services (AWS), a Security Group acts like a virtual firewall that controls incoming (inbound) and outgoing (outbound) network traffic for resources such as Amazon EC2 instances.
-
-***What a Security Group Does***
-A Security Group defines rules that determine:
-
-- Who can access your resource
-- Which ports/protocols are allowed
-- Where the traffic can come from or go to
-
-Think of it as a firewall attached directly to your AWS resource.
-
-- **1. Inbound Rules**
-    These rules control who can access your instance.
-
-
-### User Data

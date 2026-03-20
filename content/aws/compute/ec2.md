@@ -5,6 +5,8 @@
 - [EC2 Instance Types](#ec2-instance-types)
 - [EC2 Features](#ec2-features)
 - [Pricing Models](#pricing-models)
+- [Security Group](#security-group)
+- [User data](#user-data)
 - [EC2 Networking](#ec2-networking)
 - [Security](#security)
 - [Use Cases](#use-cases)
@@ -64,6 +66,27 @@ Amazon EC2 is a virtual server in the cloud. It provides resizable compute capac
 | Reserved       | 1–3 year commitment, cheaper than on-demand              |
 | Spot           | Up to 90% cheaper, interruptible workloads               |
 | Savings Plans  | Flexible compute discount for EC2, Fargate, Lambda       |
+
+
+### Security Group
+
+In Amazon Web Services (AWS), a Security Group acts like a virtual firewall that controls incoming (inbound) and outgoing (outbound) network traffic for resources such as Amazon EC2 instances.
+
+***What a Security Group Does***
+A Security Group defines rules that determine:
+
+- Who can access your resource
+- Which ports/protocols are allowed
+- Where the traffic can come from or go to
+
+Think of it as a firewall attached directly to your AWS resource.
+
+- **1. Inbound Rules**
+    These rules control who can access your instance.
+
+
+### User Data
+
 
 ### EC2 Networking
 
