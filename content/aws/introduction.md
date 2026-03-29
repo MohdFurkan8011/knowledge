@@ -6,9 +6,6 @@
 - [Edge Location](#edge-location)
 - [Local Zone](#local-zone)
 - [Region](#region)
-- [Security Group](#security-group)
-- [User Data](#user-data)
-- [Instace types]
 
 
 ### Deployment Model of Clouds

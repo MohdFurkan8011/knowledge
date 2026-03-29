@@ -9,6 +9,7 @@
   - [AWS Fargate](compute/fargate.md)
   - [AWS Elastic Beanstalk](compute/beanstalk.md)
   - [AWS Batch](compute/batch.md)
+- [AMI](ami.md)
 - [Database](database.md)
 - [Storage](storage/README.md)
   - [Simple Storage Service](storage/sss.md)
