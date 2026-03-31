@@ -20,4 +20,5 @@
 - [SQS](sqs.md)
 - [CloudFront](cloudfront.md)
 - [VPC](vpc.md)
-- [Autoscalling](autoscalling.md)
+- [Load Balance](loadbalance/loadbalance.md)
+- [Autoscalling](loadbalance/autoscalling.md)
