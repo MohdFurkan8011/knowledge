@@ -211,3 +211,12 @@ In AWS Elastic Load Balancing, a node is essentially a load balancer instance ru
 1. You never directly manage nodes. They are fully managed by AWS ELB service.
 2. Number of nodes can increase automatically as traffic grows.
 3. Nodes are the entry point for client requests, and the load balancer distributes traffic from these nodes to your targets.
+
+***What Are Health Checks?***
+Before sending traffic to a target (like an EC2 instance), the ELB performs health checks to see if the target is healthy.
+
+- Health checks are pings or HTTP requests to a target on a specific path/port.
+- Based on the responses, the load balancer marks the target as healthy or unhealthy.
+
+***Healthy and Unhealthy Thresholds***
+These thresholds are numbers of consecutive successes or failures required to mark a target healthy or unhealthy.
