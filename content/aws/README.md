@@ -1,5 +1,6 @@
 # AWS
 
+- [IAM](iam.md)
 - [Compute]
   - [EC2](compute/ec2.md)
   - [Lambda](compute/lambda.md)
