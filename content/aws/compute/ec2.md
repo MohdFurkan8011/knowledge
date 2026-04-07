@@ -5,6 +5,8 @@
 - [EC2 Instance Types](#ec2-instance-types)
 - [EC2 Features](#ec2-features)
 - [Pricing Models](#pricing-models)
+- [Security Group](#security-group)
+- [User data](#user-data)
 - [EC2 Networking](#ec2-networking)
 - [Security](#security)
 - [Use Cases](#use-cases)
@@ -64,6 +66,70 @@ Amazon EC2 is a virtual server in the cloud. It provides resizable compute capac
 | Reserved       | 1–3 year commitment, cheaper than on-demand              |
 | Spot           | Up to 90% cheaper, interruptible workloads               |
 | Savings Plans  | Flexible compute discount for EC2, Fargate, Lambda       |
+
+
+### Security Group
+
+In Amazon Web Services (AWS), a Security Group acts like a virtual firewall that controls incoming (inbound) and outgoing (outbound) network traffic for resources such as Amazon EC2 instances.
+
+***What a Security Group Does***
+A Security Group defines rules that determine:
+
+- Who can access your resource
+- Which ports/protocols are allowed
+- Where the traffic can come from or go to
+
+Think of it as a firewall attached directly to your AWS resource.
+
+- **1. Inbound Rules**
+    These rules control who can access your instance.
+    | Type  | Protocol | Port | Source      | Meaning                |
+    |-------|----------|------|-------------|------------------------|
+    | SSH   | TCP      | 22   | Your IP     | Allows SSH login       |
+    | HTTP  | TCP      | 80   | 0.0.0.0/0   | Allows web traffic     |
+    | HTTPS | TCP      | 443  | 0.0.0.0/0   | Secure web traffic     |
+
+
+- **2. Outbound Rules**
+    These rules control what traffic your instance can send out.
+    | Protocol | Port | Destination |
+    |----------|------|-------------|
+    | TCP      | 443  | 0.0.0.0/0   |
+
+***Key Characteristics***
+
+- If inbound traffic is allowed, the response is automatically allowed.
+- Mainly used with Amazon EC2, Amazon RDS, Amazon Elastic Load Balancing, etc.
+- Security Groups do not support deny rules.
+- Multiple instances can share the same Security Group
+- Works at instance level inside a Amazon Virtual Private Cloud (VPC).
+
+
+### User Data
+
+In Amazon Web Services, User Data is a script or configuration that automatically runs when an instance launches, typically used with Amazon EC2.
+
+It helps ***automate server setup*** without manually logging into the instance.
+
+***What User Data Is Used For***
+Common tasks performed using User Data:
+
+- Install software
+- Update packages
+- Start services
+- Download application code
+- Configure servers
+
+Example uses:
+- Install Java
+- Install Docker
+- Deploy Spring Boot application
+- Install Nginx / Apache
+
+***When User Data Runs***
+By default:
+Runs only once on first launch.
+But it can be configured to run every boot.
 
 ### EC2 Networking
 

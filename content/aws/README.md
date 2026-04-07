@@ -1,6 +1,10 @@
 # AWS
 
+<<<<<<< HEAD
 - [IAM](iam.md)
+=======
+- [Basic](introduction.md)
+>>>>>>> 42560f017b1e807046bfd2022e7fab17c09a1127
 - [Compute]
   - [EC2](compute/ec2.md)
   - [Lambda](compute/lambda.md)
@@ -9,6 +13,7 @@
   - [AWS Fargate](compute/fargate.md)
   - [AWS Elastic Beanstalk](compute/beanstalk.md)
   - [AWS Batch](compute/batch.md)
+- [AMI](ami.md)
 - [Database](database.md)
 - [Storage](storage/README.md)
   - [Simple Storage Service](storage/sss.md)
@@ -19,4 +24,5 @@
 - [SQS](sqs.md)
 - [CloudFront](cloudfront.md)
 - [VPC](vpc.md)
-- [Autoscalling](autoscalling.md)
+- [Load Balance](loadbalance/loadbalance.md)
+- [Autoscalling](loadbalance/autoscalling.md)
