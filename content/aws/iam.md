@@ -116,7 +116,7 @@ A developer can deploy EC2 instances but cannot delete databases.
     Login URL:
     > https://account-id.signin.aws.amazon.com/console
 
-    - **Programmatic Access**
+- **Programmatic Access**
     Used by ***applications and scripts.***
     Credentials:
     ```
