@@ -1,10 +1,7 @@
 # AWS
 
-<<<<<<< HEAD
 - [IAM](iam.md)
-=======
 - [Basic](introduction.md)
->>>>>>> 42560f017b1e807046bfd2022e7fab17c09a1127
 - [Compute]
   - [EC2](compute/ec2.md)
   - [Lambda](compute/lambda.md)
